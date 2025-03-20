@@ -1,0 +1,76 @@
+{
+    "beginners": {
+        "standards": [
+            {
+                "rank": "A1級",
+                "distance": "50Y",
+                "score": "10ｙｄ",
+                "condition": "６球中３球",
+                "description": "フルスイングOKです！"
+            },
+            {
+                "rank": "A2級",
+                "distance": "50Y",
+                "score": "10ｙｄ",
+                "condition": "６球中１球",
+                "description": ""
+            },
+            {
+                "rank": "A3級",
+                "distance": "40Y",
+                "score": "10ｙｄ",
+                "condition": "６球中３球",
+                "description": ""
+            },
+            {
+                "rank": "A4級",
+                "distance": "40Y",
+                "score": "７ｙｄ",
+                "condition": "６球中１球",
+                "description": ""
+            },
+            {
+                "rank": "A5級",
+                "distance": "30Y",
+                "score": "７ｙｄ",
+                "condition": "６球中３球",
+                "description": ""
+            },
+            {
+                "rank": "A6級",
+                "distance": "30Y",
+                "score": "７ｙｄ",
+                "condition": "６球中１球",
+                "description": ""
+            },
+            {
+                "rank": "A7級",
+                "distance": "20Y",
+                "score": "５ｙｄ",
+                "condition": "６球中３球",
+                "description": ""
+            },
+            {
+                "rank": "A8級",
+                "distance": "20Y",
+                "score": "５ｙｄ",
+                "condition": "６球中１球",
+                "description": ""
+            },
+            {
+                "rank": "A9級",
+                "distance": "10Y",
+                "score": "５ｙｄ",
+                "condition": "６球中３球",
+                "description": ""
+            },
+            {
+                "rank": "初級",
+                "distance": "10Y",
+                "score": "５ｙｄ",
+                "condition": "無制限で１球",
+                "description": "ゴルフ始めます"
+            }
+        ]
+    }
+} 

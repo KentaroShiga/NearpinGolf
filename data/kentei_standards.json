@@ -1,0 +1,139 @@
+{
+    "kentei": {
+        "standards": [
+            {
+                "rank": "名人",
+                "distance": "９番アイアンの距離",
+                "score": "２ｙｄ",
+                "condition": "２０球中２０球",
+                "reference": "『ニアピンの神様』"
+            },
+            {
+                "rank": "九段",
+                "distance": "９番アイアンの距離",
+                "score": "３ｙｄ",
+                "condition": "２０球中２０球",
+                "reference": "メジャー制覇"
+            },
+            {
+                "rank": "八段",
+                "distance": "９番アイアンの距離",
+                "score": "３ｙｄ",
+                "condition": "１５球中１５球",
+                "reference": "ジャパンツアー賞金王"
+            },
+            {
+                "rank": "七段",
+                "distance": "９番アイアンの距離",
+                "score": "３ｙｄ",
+                "condition": "１０球中１０球",
+                "reference": "シードプロの技"
+            },
+            {
+                "rank": "六段",
+                "distance": "９番アイアンの距離",
+                "score": "３ｙｄ",
+                "condition": "１０球中７球",
+                "reference": "プロゴルファーですか？"
+            },
+            {
+                "rank": "五段",
+                "distance": "９番アイアンの距離",
+                "score": "３ｙｄ",
+                "condition": "１０球中５球",
+                "reference": "トップアマ"
+            },
+            {
+                "rank": "四段",
+                "distance": "９番アイアンの距離",
+                "score": "３ｙｄ",
+                "condition": "１０球中３球",
+                "reference": "目指せクラチャン"
+            },
+            {
+                "rank": "三段",
+                "distance": "９番アイアンの距離",
+                "score": "５ｙｄ",
+                "condition": "１０球中７球",
+                "reference": "クラブ選手権入賞"
+            },
+            {
+                "rank": "二段",
+                "distance": "９番アイアンの距離",
+                "score": "５ｙｄ",
+                "condition": "１０球中５球",
+                "reference": "シングルプレーヤー"
+            },
+            {
+                "rank": "初段",
+                "distance": "９番アイアンの距離",
+                "score": "５ｙｄ",
+                "condition": "１０球中３球",
+                "reference": "シングル目前"
+            },
+            {
+                "rank": "１級",
+                "distance": "９番アイアンの距離",
+                "score": "７ｙｄ",
+                "condition": "１０球中７球",
+                "reference": "コンペ優勝候補"
+            },
+            {
+                "rank": "２級",
+                "distance": "９番アイアンの距離",
+                "score": "７ｙｄ",
+                "condition": "１０球中５球",
+                "reference": "ニアピン賞　狙います"
+            },
+            {
+                "rank": "３級",
+                "distance": "９番アイアンの距離",
+                "score": "７ｙｄ",
+                "condition": "１０球中３球",
+                "reference": "誰かを誘ってゴルフに行こう"
+            },
+            {
+                "rank": "４級",
+                "distance": "９番アイアンの距離",
+                "score": "１０ｙｄ",
+                "condition": "１０球中７球",
+                "reference": "ラウンドが楽しくなります"
+            },
+            {
+                "rank": "５級",
+                "distance": "９番アイアンの距離",
+                "score": "１０ｙｄ",
+                "condition": "１０球中５球",
+                "reference": "コースラウンドも安心"
+            },
+            {
+                "rank": "６級",
+                "distance": "９番アイアンの距離",
+                "score": "１０ｙｄ",
+                "condition": "１０球中３球",
+                "reference": "コースデビューですね"
+            },
+            {
+                "rank": "７級",
+                "distance": "９番アイアンの距離",
+                "score": "１５ｙｄ",
+                "condition": "１０球中５球",
+                "reference": "もう少しでコースへＧＯ"
+            },
+            {
+                "rank": "８級",
+                "distance": "９番アイアンの距離",
+                "score": "１５ｙｄ",
+                "condition": "１０球中３球",
+                "reference": "ニアピン練習！練習！"
+            },
+            {
+                "rank": "９級",
+                "distance": "９番アイアンの距離",
+                "score": "１５ｙｄ",
+                "condition": "１０球中１球",
+                "reference": "さあ９番アイアンで練習"
+            }
+        ]
+    }
+} 
