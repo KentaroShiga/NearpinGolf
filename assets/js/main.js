@@ -36,11 +36,23 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 }); 
 
 document.addEventListener('DOMContentLoaded', function() {
-    const menuToggle = document.getElementById('menuToggle');
-    const mobileMenu = document.getElementById('mobileMenu');
+    const menuToggle = document.querySelector('.menu-toggle');
+    const mobileMenu = document.querySelector('.mobile-menu');
+    const body = document.body;
 
     menuToggle.addEventListener('click', function() {
+        this.classList.toggle('active');
         mobileMenu.classList.toggle('active');
-        menuToggle.classList.toggle('active');
+        body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
     });
-});
+
+    // メニューリンクをクリックしたらメニューを閉じる
+    const menuLinks = document.querySelectorAll('.mobile-menu a');
+    menuLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            menuToggle.classList.remove('active');
+            mobileMenu.classList.remove('active');
+            body.style.overflow = '';
+        });
+    });
+
