@@ -27,6 +27,8 @@
 
 html {
 	width: 100%;
+    scroll-behavior: smooth;
+    scroll-padding-top: 70px; /* ヘッダーの高さ分のパディング */
 }
 
 body {
@@ -34,7 +36,7 @@ body {
 	line-height: 1.8;
 	color: #333;
 	width: 100%;
-	font-size: 15px;
+	font-size: 16px;
 	font-feature-settings: "palt";
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
@@ -183,8 +185,8 @@ nav {
 
 .organization-name {
 	font-family: "游明朝体", "Yu Mincho", YuMincho, "ヒラギノ明朝 Pro", "Hiragino Mincho Pro", "MS P明朝", "MS PMincho", serif;
-	font-size: 1.1rem;
-	font-weight: 600;
+	font-size: 1.3rem;
+	font-weight: 700;
 	color: #28a745;
 	margin: 0;
 	line-height: 1.4;
@@ -192,6 +194,20 @@ nav {
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
+	text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+	position: relative;
+	padding-bottom: 0.3rem;
+}
+
+.organization-name::after {
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 2px;
+	background: linear-gradient(to right, #28a745, transparent);
+	border-radius: 1px;
 }
 
 .organization-motto {
@@ -236,11 +252,10 @@ nav {
 .hero {
 	height: 400px;
 	width: 100%;
-	background-image: url('../images/hero-bg.jpg');
+	background-image: url('../images/common/green_bg.png');
 	background-size: cover;
 	background-position: center;
 	position: relative;
-	margin-top: 70px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -256,7 +271,7 @@ nav {
 	left: 0;
 	right: 0;
 	bottom: 0;
-	background: rgba(0,0,0,0.2);
+	background: rgba(0,0,0,0.4);
 	min-width: 100%;
 }
 
@@ -274,19 +289,15 @@ nav {
 	font-weight: bold;
 	text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
 	margin-bottom: 1rem;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	gap: 1rem;
-	white-space: nowrap;
+}
+
+.hero-content p {
+	font-size: 1.5rem;
+	text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
 }
 
 .heading-decoration-line {
-	width: 200px;
-	height: 6px;
-	position: relative;
-	background: #007A2B;
-	margin: 0 auto 1rem;
+	display: none;
 }
 
 .heading-decoration-corner {
@@ -365,57 +376,60 @@ nav {
 
 /* Sidebar */
 .sidebar {
-	position: sticky;
-	top: 100px;
-	height: fit-content;
-}
-
-.sidebar-section {
-	background: #fff;
+	position: fixed;
+	right: 2rem;
+	top: 70%;
+	transform: translateY(-50%);
+	background: rgba(255, 255, 255, 0.98);
 	padding: 1.5rem;
-	border-radius: 8px;
-	box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-	margin-bottom: 1.5rem;
+	border-radius: 20px;
+	box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+	z-index: 1000;
+	backdrop-filter: blur(10px);
+	border: 1px solid rgba(40, 167, 69, 0.15);
+	min-width: 220px;
 }
 
-.sidebar-section h3 {
-	color: #28a745;
-	font-size: 1.2rem;
-	margin-bottom: 1rem;
-	padding-bottom: 0.5rem;
-	border-bottom: 2px solid #28a745;
-}
-
-.sidebar-section ul {
+.sidebar ul {
 	list-style: none;
 	padding: 0;
 	margin: 0;
 }
 
-.sidebar-section li {
-	margin-bottom: 0.8rem;
+.sidebar li {
+	margin-bottom: 1.2rem;
+	position: relative;
 }
 
-.sidebar-section a {
-	color: #333;
-	text-decoration: none;
-	display: block;
-	padding: 0.5rem;
-	border-radius: 4px;
-	transition: all 0.3s ease;
-	font-size: 0.9rem;
+.sidebar li:last-child {
+	margin-bottom: 0;
 }
 
-.sidebar-section a:hover {
-	background: #f8f9fa;
+.sidebar a {
 	color: #28a745;
-	padding-left: 1rem;
+	text-decoration: none;
+	font-size: 1rem;
+	font-weight: 500;
+	transition: all 0.3s ease;
+	display: block;
+	padding: 0.8rem 1.2rem;
+	border-radius: 12px;
+	position: relative;
+	background: rgba(40, 167, 69, 0.08);
+	transform: translateX(-5px);
+	box-shadow: 0 4px 12px rgba(40, 167, 69, 0.1);
 }
 
-.date {
-	color: #666;
-	font-size: 0.9rem;
-	display: block;
+.sidebar a::before {
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 50%;
+	transform: translateY(-50%);
+	width: 4px;
+	height: 70%;
+	background: #28a745;
+	border-radius: 0 2px 2px 0;
 }
 
 /* Footer */
@@ -501,7 +515,7 @@ footer {
 	}
 
 	.organization-name {
-		font-size: 0.9rem;
+		font-size: 1.2rem;
 	}
 
 	.organization-motto {
@@ -518,12 +532,15 @@ footer {
 
 	/* Hero Section */
 	.hero {
-		height: 250px;
-		margin-top: 60px;
+		height: 300px;
 	}
 
 	.hero-content h1 {
-		font-size: 2rem;
+		font-size: 2.5rem;
+	}
+
+	.hero-content p {
+		font-size: 1.2rem;
 	}
 
 	/* Activities */
@@ -564,6 +581,25 @@ footer {
 	.chairman-name {
 		font-size: 1.1rem;
 	}
+
+	/* Sidebar */
+	.sidebar {
+		position: fixed;
+		bottom: 0;
+		right: 0;
+		left: 0;
+		top: auto;
+		transform: none;
+		border-radius: 20px 20px 0 0;
+		padding: 1rem;
+		background: rgba(255,255,255,0.98);
+		box-shadow: 0 -4px 20px rgba(0,0,0,0.1);
+		min-width: auto;
+	}
+
+	.sidebar a {
+		transform: translateY(-2px);
+	}
 }
 
 @media (max-width: 430px) {
@@ -583,12 +619,15 @@ footer {
 
 	/* Hero Section */
 	.hero {
-		height: 200px;
-		margin-top: 55px;
+		height: 250px;
 	}
 
 	.hero-content h1 {
-		font-size: 1.8rem;
+		font-size: 2rem;
+	}
+
+	.hero-content p {
+		font-size: 1rem;
 	}
 
 	/* Activities */
@@ -634,57 +673,42 @@ footer {
 
 /* Mobile Menu */
 .menu-toggle {
-	display: none;
+    display: none;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-between;
     width: 30px;
-    height: 25px;
-    background: transparent;
-    border: none;
-	cursor: pointer;
-    padding: 0;
+    height: 21px;
+    cursor: pointer;
+    z-index: 1000;
     margin-left: auto;
-    z-index: 1001;
+    margin-right: 1rem;
 }
 
 .menu-toggle span {
-	display: block;
-    width: 30px;
-	height: 3px;
-    background-color: #333;
-    border-radius: 3px;
-    transition: all 0.3s linear;
-    margin: 2px 0;
-}
-
-.menu-toggle.active span:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 5px);
-}
-
-.menu-toggle.active span:nth-child(2) {
-    opacity: 0;
-}
-
-.menu-toggle.active span:nth-child(3) {
-    transform: rotate(-45deg) translate(7px, -6px);
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: #2c3e50;
+    transition: all 0.3s ease;
 }
 
 .mobile-menu {
     display: none;
     position: fixed;
-    top: 70px;
-    left: 0;
-    width: 100%;
-    height: calc(100vh - 70px);
-    background: rgba(255, 255, 255, 0.98);
-    padding: 1rem;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    overflow-y: auto;
-    z-index: 1000;
+    top: 0;
+    right: -100%;
+    width: 80%;
+    max-width: 300px;
+    height: 100vh;
+    background: #fff;
+    padding: 80px 20px 20px;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+    transition: right 0.3s ease;
+    z-index: 999;
 }
 
 .mobile-menu.active {
-    display: block;
+    right: 0;
 }
 
 .mobile-menu ul {
@@ -694,51 +718,61 @@ footer {
 }
 
 .mobile-menu li {
-    margin: 0.5rem 0;
-    border-bottom: 1px solid #eee;
-}
-
-.mobile-menu li:last-child {
-    border-bottom: none;
+    margin-bottom: 1rem;
 }
 
 .mobile-menu a {
+    color: #2c3e50;
     text-decoration: none;
-    color: #333;
     font-size: 1.1rem;
     display: block;
-    padding: 1rem;
-    transition: color 0.3s;
+    padding: 0.5rem 0;
+    transition: color 0.3s ease;
 }
 
 .mobile-menu a:hover {
     color: #28a745;
 }
 
-@media (max-width: 768px) {
+/* ハンバーガーメニュークリック後のスタイル */
+.mobile-menu.active {
+    transform: translateX(0);
+  }
+  
+  .menu-toggle.active span:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+  }
+  
+  .menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .menu-toggle.active span:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+  }
+  
+
+@media (max-width: 900px) {
     .menu-toggle {
         display: flex;
+        margin-left: auto;
+        margin-right: 1rem;
     }
 
     .nav-links {
         display: none;
     }
 
-    .mobile-menu {
-        top: 60px;
-        height: calc(100vh - 60px);
-    }
-}
-
-@media (max-width: 430px) {
-    .mobile-menu {
-        top: 55px;
-        height: calc(100vh - 55px);
+    .menu-toggle.active span:nth-child(1) {
+        transform: translateY(9px) rotate(45deg);
     }
 
-    .mobile-menu a {
-        font-size: 1rem;
-        padding: 0.8rem;
+    .menu-toggle.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu-toggle.active span:nth-child(3) {
+        transform: translateY(-9px) rotate(-45deg);
     }
 }
 
@@ -777,7 +811,7 @@ footer {
 /* ----------------------------------- */
 /* 初期設定--------------------------- */
 body{
-	font-size:12px;
+	font-size:16px;
 	line-height:18px;
 	font-family:"ＭＳ Ｐゴシック";
 	color:#333333;
@@ -848,8 +882,8 @@ img{
 	margin-bottom: 20px;
 }
 #contents p {
-	font-size: 14px;
-	line-height: 1.6;
+	font-size: 16px;
+	line-height: 1.8;
 	margin-bottom: 20px;
 }
 #contents img {
@@ -1098,6 +1132,7 @@ img{
 	display: flex;
 	flex-direction: column;
 	height: 100%;
+    min-height: 380px;
 	position: relative;
 	overflow: hidden;
 }
@@ -1115,26 +1150,38 @@ img{
 }
 
 .activity-card .learn-more {
-	display: inline-block;
-	padding: 0.5rem 1rem;
-	background: #28a745;
-	color: #fff;
-	text-decoration: none;
-	border-radius: 25px;
-	transition: background-color 0.3s;
-	margin: auto auto 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.8rem 2rem;
+    background: #28a745;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    margin: auto auto 0;
+    font-weight: 500;
+    box-shadow: 0 2px 8px rgba(40, 167, 69, 0.2);
 }
 
 .activity-card .learn-more:hover {
-	background: #218838;
+    background: #218838;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(40, 167, 69, 0.3);
+}
+
+.activity-card .learn-more svg {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
 }
 
 /* Activity Icons */
 .medal-icon,
 .golfer-icon {
 	display: block;
-	width: 60px;
-	height: 60px;
+	width: 120px;
+	height: 120px;
 	background-size: contain;
 	background-repeat: no-repeat;
 	background-position: center;
@@ -1145,11 +1192,11 @@ img{
     margin: 0 auto; 
 }
 .medal-icon {
-	background-image: url('../images/common/medal-ribbon.svg');
+	background-image: url('../images/common/medal_icon.png');
 }
 
 .golfer-icon {
-	background-image: url('../images/common/vaadin_golf.svg');
+	background-image: url('../images/common/golfer_icon.png');
 }
 
 /* ===== 7. News ===== */
@@ -1177,12 +1224,7 @@ img{
 	border-radius: 8px;
 	overflow: hidden;
 	box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-
-.news-item img {
-	width: 100%;
-	height: 200px;
-	object-fit: cover;
+    min-width: 220px;
 }
 
 .news-tag {
@@ -1209,82 +1251,183 @@ img{
 
 /* Bottom Content */
 .bottom-content {
-	background: #fff;
-	padding: 4rem 2rem;
-	margin-top: 4rem;
+    background: #fff;
+    padding: 4rem 0;
+    margin-top: 4rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.bottom-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #28a745, transparent);
 }
 
 .bottom-content h2 {
-	font-size: 1.8rem;
-	text-align: center;
-	margin-bottom: 1rem;
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #2c3e50;
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+.bottom-content h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: #28a745;
+    border-radius: 1.5px;
 }
 
 .bottom-content .subtitle {
-	text-align: center;
-	margin-bottom: 3rem;
-	color: #666;
+    text-align: center;
+    margin-bottom: 3rem;
+    color: #666;
+    font-size: 1.1rem;
+    letter-spacing: 0.05em;
 }
 
 .activity-image {
-	max-width: 1200px;
-	margin: 0 auto;
-	display: flex;
-	align-items: center;
-	gap: 4rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+    padding: 2rem;
+    background: rgba(40, 167, 69, 0.03);
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
 }
 
 .activity-image img {
-	width: 40%;
-	height: auto;
-	object-fit: contain;
-	max-height: 250px;
+    width: 40%;
+    height: auto;
+    object-fit: contain;
+    max-height: 250px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.activity-image img:hover {
+    transform: scale(1.02);
 }
 
 .activity-text {
-	flex: 1;
-	min-width: 0;
-	padding: 1rem;
+    flex: 1;
+    min-width: 0;
+    padding: 1rem;
 }
 
 .activity-text h3 {
-	font-size: 1.5rem;
-	margin-bottom: 1.5rem;
-	color: #333;
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: #2c3e50;
+    position: relative;
+    padding-left: 0;
+    border-left: none;
 }
 
 .activity-text p {
-	margin-bottom: 2rem;
-	line-height: 1.8;
+    margin-bottom: 2rem;
+    line-height: 1.8;
+    color: #34495e;
 }
 
 .read-more {
-	display: inline-block;
-	padding: 0.8rem 2rem;
-	background: #28a745;
-	color: #fff;
-	text-decoration: none;
-	border-radius: 4px;
-	transition: background-color 0.3s;
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    background: #28a745;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(40, 167, 69, 0.2);
+    position: relative;
+    overflow: hidden;
 }
 
 .read-more:hover {
-	background: #218838;
+    background: #218838;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(40, 167, 69, 0.3);
+}
+
+.read-more::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 1.5rem;
+    width: 6px;
+    height: 6px;
+    border-top: 2px solid #fff;
+    border-right: 2px solid #fff;
+    transform: translateY(-50%) rotate(45deg);
+}
+
+@media (max-width: 768px) {
+    .bottom-content {
+        padding: 3rem 1rem;
+    }
+
+    .activity-image {
+        flex-direction: column;
+        gap: 2rem;
+        padding: 1.5rem;
+    }
+
+    .activity-image img {
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto;
+    }
+
+    .activity-text {
+        padding: 0;
+    }
+
+    .activity-text h3 {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 430px) {
+    .bottom-content {
+        padding: 2rem 1rem;
+    }
+
+    .bottom-content h2 {
+        font-size: 1.5rem;
+    }
+
+    .activity-image {
+        padding: 1rem;
+    }
+
+    .activity-text h3 {
+        font-size: 1.2rem;
+    }
 }
 
 /* Nearpin Page Styles */
-.nearpin-hero {
-    background-image: url('../images/nearpin-hero.jpg');
-    height: 400px;
-}
-
-.nearpin-container {
-    max-width: 1200px;
-    margin: 2rem auto;
-    padding: 0 2rem;
+.nearpin-container,
+.championship-container {
     display: grid;
     grid-template-columns: 1fr 300px;
     gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
 }
 
 .main-content {
@@ -1295,68 +1438,55 @@ img{
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-.nearpin-intro {
+.sidebar-section {
     background: #fff;
-    padding: 2rem;
+    padding: 1.5rem;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    margin-bottom: 2rem;
-    width: 100%;
-    box-sizing: border-box;
+    margin-bottom: 1.5rem;
 }
 
-.nearpin-intro h2 {
-    font-size: 2rem;
-    color: #333;
+.sidebar-section h3 {
+    color: #28a745;
+    font-size: 1.2rem;
     margin-bottom: 1rem;
-    text-align: center;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #28a745;
 }
 
-.nearpin-intro h3 {
-    font-size: 1.5rem;
-    color: #666;
-    margin-bottom: 2rem;
-    text-align: center;
+.sidebar-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
-.intro-text {
-    max-width: 800px;
-    margin: 0 auto 3rem;
-    line-height: 1.8;
+.sidebar-section li {
+    margin-bottom: 0.8rem;
 }
 
-.activity-schedule {
-    margin-top: 4rem;
-}
-
-.schedule-table {
-    margin-top: 2rem;
-    overflow-x: auto;
-}
-
-.schedule-table table {
-    width: 100%;
-    border-collapse: collapse;
-    background: #fff;
-}
-
-.schedule-table th {
-    background-color: #f8f9fa;
+.sidebar-section a {
     color: #333;
-    font-weight: bold;
-    padding: 12px;
-    text-align: center;
-    border-bottom: 2px solid #dee2e6;
-    vertical-align: middle;
+    text-decoration: none;
+    display: block;
+    padding: 0.5rem;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
 }
 
-.schedule-table td {
-    padding: 1rem;
-    border-bottom: 1px solid #eee;
-}
-
-.schedule-table tr:hover {
+.sidebar-section a:hover {
     background: #f8f9fa;
+    color: #28a745;
+    padding-left: 1rem;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+    .nearpin-container,
+    .championship-container {
+        grid-template-columns: 1fr;
+    }
+
 }
 
 /* Championship Page Styles */
@@ -1577,134 +1707,248 @@ img{
     }
 }
 
-/* Association Info Styles */
+/* JNGAページのスタイル */
 .association-info {
-    max-width: 100%;
+    max-width: 1200px;
     margin: 0 auto;
-    padding: 1rem;
-}
-
-.info-group {
-    margin-bottom: 3rem;
-    background: #fff;
     padding: 2rem;
+    background: #fff;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
+.association-info h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 1rem;
+    font-size: 2rem;
+}
+
+.association-info .subtitle {
+    text-align: center;
+    color: #666;
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.info-group {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    padding: 2rem;
+    margin-bottom: 2rem;
+    position: relative;
+}
+
 .info-group h3 {
-    color: #28a745;
-    font-size: 1.3rem;
+    color: #2c3e50;
+    font-size: 1.5rem;
     margin-bottom: 1.5rem;
     padding-bottom: 0.5rem;
-    border-bottom: 2px solid #28a745;
+    border-bottom: 2px solid #4CAF50;
+    position: relative;
 }
 
-.info-group h4 {
-    font-size: 1.1rem;
-    margin: 1.5rem 0 1rem;
-    color: #333;
-}
-
-.english-name {
-    color: #666;
-    font-size: 1.1rem;
-    margin-top: 0.5rem;
+.info-group h3::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 50px;
+    height: 2px;
+    background: #4CAF50;
 }
 
 .info-group dl {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: 1rem;
     margin: 0;
 }
 
 .info-group dt {
     font-weight: bold;
-    margin-top: 1rem;
+    color: #2c3e50;
+    padding: 0.5rem;
+    background: #f8f9fa;
+    border-radius: 4px;
+    text-align: center;
 }
 
 .info-group dd {
-    margin-left: 0;
-    margin-bottom: 1rem;
-    line-height: 1.6;
+    margin: 0;
+    padding: 0.5rem;
+    color: #34495e;
 }
 
-.officers dt {
-    float: left;
-    clear: left;
-    width: 100px;
-    margin-top: 0;
-    line-height: 1.6;
+.info-group dd ol {
+    list-style-position: inside;
+    padding-left: 0;
 }
 
-.officers dd {
-    margin-left: 100px;
-    margin-bottom: 0.5rem;
-    line-height: 1.6;
+.info-group dd ol li {
+    margin-bottom: 0.8rem;
+    line-height: 1.8;
+}
+
+.officers {
+    margin: 1.5rem 0;
+}
+
+.officers p {
+    margin: 0.8rem 0;
+    line-height: 2;
+    font-size: 1.1rem;
+}
+
+.officers .position {
+    font-weight: bold;
+    color: #28a745;
+    margin-right: 1rem;
+}
+
+@media (max-width: 768px) {
+    .info-group {
+        padding: 1.5rem;
+    }
+
+    .info-group h3 {
+        font-size: 1.3rem;
+    }
+
+    .info-group dl {
+        grid-template-columns: 100px 1fr;
+        gap: 0.8rem;
+    }
+}
+
+@media (max-width: 430px) {
+    .info-group {
+        padding: 1rem;
+    }
+
+    .info-group h3 {
+        font-size: 1.2rem;
+    }
+
+    .info-group dl {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+    }
+
+    .info-group dt {
+        text-align: left;
+    }
+}
+
+/* 沿革セクションのスタイル */
+.history {
+    margin: 2rem 0;
 }
 
 .history dt {
-    font-weight: bold;
-    color: #28a745;
-    margin-top: 1.5rem;
+    color: #2c3e50;
+    font-weight: 600;
+    font-size: 1.1rem;
+    padding: 0.8rem 1.5rem;
+    background: #f8f9fa;
+    border-left: 3px solid #28a745;
+    margin-bottom: 0.5rem;
+    border-radius: 4px;
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .history dd {
     margin-left: 0;
-    padding-left: 1rem;
-    border-left: 3px solid #eee;
-    margin-top: 0.5rem;
+    margin-bottom: 1.5rem;
+    padding: 0.8rem 1.5rem;
+    color: #34495e;
+    line-height: 1.6;
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
 }
 
-.mission-statement .highlight {
-    font-size: 1.2rem;
-    color: #28a745;
-    font-weight: bold;
-    margin: 1.5rem 0;
-    text-align: center;
-    line-height: 2;
+@media (max-width: 768px) {
+    .history dt {
+        font-size: 1rem;
+        padding: 0.6rem 1rem;
+    }
+
+    .history dd {
+        padding: 0.6rem 1rem;
+        font-size: 0.95rem;
+    }
 }
 
-.collaboration dl {
-    background: #f8f9fa;
+@media (max-width: 430px) {
+    .history dt {
+        font-size: 0.95rem;
+        padding: 0.5rem 0.8rem;
+    }
+
+    .history dd {
+        padding: 0.5rem 0.8rem;
+        font-size: 0.9rem;
+    }
+}
+
+.collaboration {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.collab-item {
+    background: #fff;
     padding: 1.5rem;
     border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
 
-.collaboration dt {
+.collab-item h4 {
     color: #28a745;
-    font-weight: bold;
-    margin-top: 1rem;
-}
-
-.collaboration dt.large-text {
-    font-size: 1.8rem;
-    color: #28a745;
-    font-weight: bold;
-    margin-top: 1.5rem;
-    text-align: center;
-}
-
-.collaboration dd {
-    margin-left: 2rem;
-    margin-top: 0.5rem;
-}
-
-.founding-statement {
-    line-height: 1.8;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
 }
 
 .founder {
     text-align: right;
+    font-style: italic;
+    color: #666;
     margin-top: 2rem;
-    font-weight: bold;
 }
 
-.chairman-message {
-    margin-top: 4rem;
-    padding-top: 4rem;
-    border-top: 1px solid #eee;
+.founder-content {
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+    margin-top: 1.5rem;
 }
 
-/* Responsive adjustments */
+.founder-image {
+    flex: 0 0 300px;
+}
+
+.founder-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.founder-text {
+    flex: 1;
+}
+
+.founder-text p {
+    margin-bottom: 1.5rem;
+    line-height: 2;
+}
+
 @media (max-width: 768px) {
     .association-info {
         padding: 1rem;
@@ -1723,721 +1967,35 @@ img{
         margin-left: 1rem;
     }
 
-    .mission-statement .highlight {
-        white-space: normal;
-        line-height: 1.8;
-    }
-}
-
-.founder-profile {
-    text-align: center;
-    margin: 2rem 0;
-}
-
-.founder-profile img {
-    max-width: 300px;
-    border-radius: 8px;
-    margin-bottom: 1rem;
-}
-
-.founder {
-    text-align: center;
-    margin-top: 1rem;
-    font-weight: bold;
-}
-
-/* 検定基準テーブルのスタイル */
-.kentei-standards {
-    background: #fff;
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    margin: 2rem 0;
-    width: 100%;
-    box-sizing: border-box;
-}
-
-.kentei-standards .section-header {
-    text-align: center;
-    margin-bottom: 2rem;
-}
-
-.kentei-standards .section-header h2 {
-    font-size: 2rem;
-    color: #333;
-    margin-bottom: 1rem;
-}
-
-.kentei-standards .heading-decoration-line {
-    width: 200px;
-    height: 4px;
-    background: #28a745;
-    margin: 1rem auto;
-}
-
-.kentei-standards .subtitle {
-    color: #666;
-    font-size: 1.1rem;
-    margin-top: 1rem;
-}
-
-.standards-table {
-    margin: 2rem 0;
-    overflow-x: auto;
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 1.5rem;
-    width: 100%;
-}
-
-.standards-table table {
-    width: 100%;
-    border-collapse: separate;
-    border-spacing: 0;
-    background-color: white;
-}
-
-.standards-table th,
-.standards-table td {
-    padding: 0.8rem;
-    text-align: left;
-    border-bottom: 1px solid #e0e0e0;
-}
-
-.standards-table th {
-    background-color: #f8f9fa;
-    color: #333;
-    font-weight: bold;
-    text-align: center;
-    border-bottom: 2px solid #dee2e6;
-    vertical-align: middle;
-}
-
-.standards-table tr:hover {
-    background-color: rgba(40, 167, 69, 0.05);
-}
-
-/* レスポンシブ対応 */
-@media (max-width: 768px) {
-    .kentei-standards {
-        padding: 1.5rem;
-        margin: 1rem 0;
-    }
-
-    .standards-table {
-        margin: 1rem 0;
-        padding: 1rem;
-    }
-
-    .standards-table table {
-        min-width: 600px;
-        font-size: 0.9rem;
-    }
-}
-
-@media (max-width: 430px) {
-    .kentei-standards {
-        padding: 1rem;
-        margin: 0.5rem 0;
-        border-radius: 0;
-    }
-
-    .standards-table {
-        margin: 0.5rem 0;
-        padding: 0.5rem;
-    }
-
-    .standards-table th,
-    .standards-table td {
-        padding: 0.5rem;
-        font-size: 0.85rem;
-    }
-
-    .kentei-standards .section-header h2 {
-        font-size: 1.3rem;
-    }
-
-    .kentei-standards .subtitle {
-        font-size: 1rem;
-    }
-}
-
-@media (min-width: 769px) {
-	.menu-toggle {
-		display: none;
-	}
-
-	.nav-links {
-		display: flex;
-	}
-}
-
-/* 既存のスマートフォン用メディアクエリの後に追加 */
-@media (max-width: 430px) {
-    /* 全体のレイアウト調整 */
-    .container,
-    .container-full,
-    #contents,
-    #all-body,
-    #all-wall {
-        width: 100% !important;
-        min-width: 0;
-        margin: 0 auto;
-        padding: 1rem;
-        box-sizing: border-box;
-    }
-
-    /* ヘッダー調整 */
-    nav {
-        padding: 0.5rem;
-        gap: 0.5rem;
-    }
-
-    .logo {
-        max-width: 65%;
-    }
-
-    .logo img {
-        height: 35px;
-    }
-
-    /* テーブル調整 */
-    .standards-table,
-    .championship-history,
-    .schedule-table {
-        margin: 1rem auto;
-        padding: 0.5rem;
-        width: 100%;
-        overflow-x: auto;
-        box-sizing: border-box;
-    }
-
-    .standards-table table,
-    .championship-history .table,
-    .schedule-table table {
-        margin: 0 auto;
-        width: 100%;
-        font-size: 0.75rem;
-    }
-
-    /* お知らせ項目の修正 */
-    .news-grid {
+    .collaboration {
         grid-template-columns: 1fr;
-        gap: 1rem;
-        padding: 0;
     }
 
-    .news-item {
-        width: 100%;
-        margin: 0 0 1rem 0;
-    }
-
-    .news-item img {
-        height: 160px;
-    }
-
-    /* 協会概要セクションの横幅修正 */
-    .info-group {
-        margin: 1rem 0;
-        padding: 1rem;
-        width: 100%;
-        box-sizing: border-box;
-    }
-
-    /* ヒーローセクション */
-    .hero {
-        height: 200px;
-        min-width: 100%;
-        margin-top: 55px;
-    }
-
-    .hero-content h1 {
-        font-size: 1.8rem;
-    }
-
-    /* フッター */
-    .footer-content {
-        padding: 0.5rem;
-    }
-
-    /* コンテンツ内の要素調整 */
-    #contents #sec-right,
-    #contents #sec-left {
-        width: 100%;
-        margin: 0 auto;
-        float: none;
-    }
-
-    #contents #sec-right .lead,
-    #contents #sec-right #compe p {
-        width: 100%;
-        margin: 0.5rem auto;
-    }
-
-    /* 画像サイズ調整 */
-    .profile img,
-    .founder-profile img {
-        max-width: 100%;
-        height: auto;
-    }
-
-    /* テキスト調整 */
-    h2 {
-        font-size: 1.3rem !important;
-    }
-
-    h3 {
-        font-size: 1.1rem !important;
-    }
-
-    p {
-        font-size: 0.85rem !important;
-    }
-
-    /* モバイルメニュー */
-    .mobile-menu {
-        top: 55px;
-    }
-
-    .mobile-menu a {
-        font-size: 0.9rem;
-        padding: 0.75rem;
-    }
-
-    /* テーブルのスクロール領域の中央揃え */
-    .table-responsive {
-        margin: 0 auto;
-        width: 100%;
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-    }
-
-    /* テーブルセルの調整 */
-    .standards-table th,
-    .standards-table td,
-    .championship-history .table th,
-    .championship-history .table td,
-    .schedule-table th,
-    .schedule-table td {
-        padding: 0.4rem;
-        text-align: center;
-    }
-
-    .activity-image {
-        gap: 1rem;
-    }
-
-    .activity-image img {
-        max-height: 150px;
-    }
-
-    /* サイトマップの調整 */
-    .sitemap-section {
-        margin: 1rem auto;
-        padding: 1rem;
-        width: 100%;
-        box-sizing: border-box;
-    }
-
-    .sitemap-group {
-        margin-bottom: 2rem;
-    }
-
-    .sitemap-list > li > a {
-        font-size: 1rem;
-        padding: 0.5rem 0;
-    }
-
-    .sitemap-list ul {
-        padding-left: 1rem;
-    }
-
-    /* 検定ページの調整 */
-    .kentei-standards {
-        margin: 2rem auto;
-        padding: 1rem;
-        width: 100%;
-        box-sizing: border-box;
-    }
-
-    .standards-table {
-        margin: 1rem auto;
-        padding: 0.5rem;
-        width: 100%;
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-    }
-
-    .standards-table h3 {
-        font-size: 1.4rem;
-        margin: 2rem 0 1rem;
-    }
-
-    /* 選手権ページの調整 */
-    .championship-intro {
-        margin: 1rem auto;
-        padding: 1rem;
-        width: 100%;
-        box-sizing: border-box;
-    }
-
-    .competition-section {
-        margin: 1rem auto;
-        padding: 1rem;
-        width: 100%;
-        box-sizing: border-box;
-    }
-
-    .method-box, 
-    .class-box, 
-    .features-box {
-        padding: 1rem;
-        margin-bottom: 1rem;
-    }
-
-    .class-list li {
+    .founder-content {
         flex-direction: column;
-        align-items: flex-start;
-        margin-bottom: 1rem;
+        align-items: center;
     }
 
-    .class-name {
-        margin-bottom: 0.5rem;
-    }
-
-    /* 共通の調整 */
-    .container,
-    .container-full {
-        padding: 0.5rem;
-    }
-
-    section {
-        margin: 1rem auto;
+    .founder-image {
+        flex: 0 0 auto;
         width: 100%;
-        box-sizing: border-box;
+        max-width: 300px;
+        margin-bottom: 1.5rem;
     }
-
-    /* テーブル共通の調整 */
-    table {
-        width: 100%;
-        margin: 0 auto;
-    }
-
-    th, td {
-        padding: 0.5rem;
-        font-size: 0.85rem;
-    }
-}
-
-/* 競技セクションのスタイル */
-.competition-section {
-    background: #fff;
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    margin-bottom: 2rem;
-}
-
-.competition-section .competition-title {
-    font-size: 1.5rem;
-    color: #28a745;
-    margin-bottom: 1.5rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 2px solid #28a745;
-}
-
-.competition-details h4 {
-    font-size: 1.2rem;
-    color: #333;
-    margin: 1.5rem 0 1rem;
-}
-
-.method-box,
-.class-box,
-.features-box {
-    background: #f8f9fa;
-    padding: 1.5rem;
-    border-radius: 8px;
-    margin-bottom: 2rem;
-}
-
-.method-box h5,
-.class-box h5,
-.features-box h5 {
-    font-size: 1.1rem;
-    color: #28a745;
-    margin-bottom: 1rem;
-}
-
-.class-list {
-    list-style: none;
-    padding: 0;
-}
-
-.class-list li {
-    display: flex;
-    align-items: center;
-    margin-bottom: 0.8rem;
-}
-
-.class-name {
-    background: #28a745;
-    color: #fff;
-    padding: 0.3rem 0.8rem;
-    border-radius: 4px;
-    margin-right: 1rem;
-    font-weight: bold;
-}
-
-.features-list {
-    list-style: none;
-    padding: 0;
-}
-
-.features-list li {
-    position: relative;
-    padding-left: 1.5rem;
-    margin-bottom: 0.8rem;
-}
-
-.features-list li:before {
-    content: "•";
-    color: #28a745;
-    position: absolute;
-    left: 0;
-    font-size: 1.2rem;
 }
 
 @media (max-width: 430px) {
-    .competition-section {
+    .association-info {
+        margin: 1rem;
         padding: 1rem;
-        margin: 1rem 0;
     }
 
-    .method-box,
-    .class-box,
-    .features-box {
-        padding: 1rem;
-        margin-bottom: 1rem;
+    .founder-image {
+        max-width: 250px;
     }
 
-    .class-list li {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .class-name {
-        margin-bottom: 0.5rem;
-    }
-
-    .competition-section .competition-title {
-        font-size: 1.3rem;
-    }
-
-    .competition-details h4 {
-        font-size: 1.1rem;
-    }
-
-    .method-box h5,
-    .class-box h5,
-    .features-box h5 {
-        font-size: 1rem;
-    }
-}
-
-.golfer-icon {
-    display: inline-block;
-    width: 50px;
-    height: 50px;
-    background-image: url('../../images/top/vaadin_golf.svg');
-    background-size: contain;
-    background-repeat: no-repeat;
-    vertical-align: middle;
-    margin-right: 10px;
-}
-
-.golf-ball-icon {
-    display: inline-block;
-    width: 50px;
-    height: 50px;
-    background-image: url('../images/common/medal.svg');
-    background-size: contain;
-    background-repeat: no-repeat;
-    vertical-align: middle;
-    margin-left: 10px;
-}
-
-@media (max-width: 768px) {
-    .golfer-icon,
-    .golf-ball-icon {
-        width: 35px;
-        height: 35px;
-    }
-}
-
-@media (max-width: 430px) {
-    .golfer-icon,
-    .golf-ball-icon {
-        width: 30px;
-        height: 30px;
-    }
-}
-
-@media (max-width: 430px) {
-    #about-kentei {
-        width: 100%;
-        margin: 0;
-        padding: 1rem;
-        box-sizing: border-box;
-    }
-
-    .intro-text {
-        width: 100%;
-        padding: 0;
-        margin: 0;
-        box-sizing: border-box;
-    }
-
-    .benefits-section {
-        width: 100%;
-        padding: 0;
-        margin: 1rem 0;
-        box-sizing: border-box;
-    }
-
-    .benefits-list {
-        width: 100%;
-        padding: 0;
-        margin: 0;
-        box-sizing: border-box;
-    }
-
-    .benefits-list li {
-        margin-bottom: 1rem;
-        padding: 0;
-    }
-}
-
-.medal-icon {
-    display: inline-block;
-    width: 50px;
-    height: 50px;
-    background-image: url('../images/common/medal-ribbon.svg');
-    background-size: contain;
-    background-repeat: no-repeat;
-    vertical-align: middle;
-    margin-bottom: 1rem;
-}
-
-.activity-card.championship::before {
-    display: none;
-}
-
-@media (max-width: 768px) {
-    .medal-icon {
-        width: 40px;
-        height: 40px;
-    }
-}
-
-@media (max-width: 430px) {
-    .medal-icon {
-        width: 35px;
-        height: 35px;
-    }
-}
-
-/* アイコンスタイルの統一 */
-.medal-icon,
-.golfer-icon {
-    display: block !important;
-    width: 60px !important;
-    height: 60px !important;
-    background-size: contain !important;
-    background-repeat: no-repeat !important;
-    background-position: center !important;
-    margin: 0;
-}
-
-.medal-icon {
-    background-image: url('../images/common/medal-ribbon.svg') !important;
-}
-
-.golfer-icon {
-    background-image: url('../../images/top/vaadin_golf.svg') !important;
-}
-
-@media (max-width: 768px) {
-    .medal-icon,
-    .golfer-icon {
-        width: 45px !important;
-        height: 45px !important;
-        margin: 0;
-    }
-}
-
-@media (max-width: 430px) {
-    .medal-icon,
-    .golfer-icon {
-        width: 40px !important;
-        height: 40px !important;
-        margin: 0;
-    }
-}
-
-/* テーブルのフォントスタイル */
-.table-responsive th {
-    font-family: "游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic", sans-serif;
-    font-weight: 600;
-    font-size: 0.95rem;
-}
-
-.table-responsive td {
-    font-size: 0.9rem;
-    line-height: 1.6;
-}
-
-/* レスポンシブ対応 */
-@media (max-width: 768px) {
-    body {
-        font-size: 14px;
-    }
-
-    h2 {
-        font-size: 1.8rem;
-    }
-
-    h3 {
-        font-size: 1.4rem;
-    }
-
-    p {
-        line-height: 1.9;
-    }
-}
-
-@media (max-width: 430px) {
-    body {
-        font-size: 13px;
-    }
-
-    h2 {
-        font-size: 1.5rem !important;
-    }
-
-    h3 {
-        font-size: 1.2rem !important;
-    }
-
-    p {
-        font-size: 0.9rem !important;
-        line-height: 1.8;
-    }
-
-    .table-responsive th,
-    .table-responsive td {
-        font-size: 0.85rem;
+    .founder-text p {
+        font-size: 0.95rem;
     }
 }
 
@@ -2608,3 +2166,1124 @@ img{
         padding: 1rem;
     }
 }
+
+/* スケジュールボードのスタイル */
+.schedule-board {
+    background: #fff;
+}
+
+.schedule-list {
+    margin-top: 1rem;
+}
+
+.schedule-item {
+    padding: 0.8rem;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.schedule-item:last-child {
+    border-bottom: none;
+}
+
+.schedule-item .date {
+    display: block;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 0.3rem;
+}
+
+.schedule-item .venue {
+    display: block;
+    color: #666;
+    font-size: 0.9rem;
+    margin-bottom: 0.3rem;
+}
+
+.schedule-item .status {
+    display: inline-block;
+    padding: 0.2rem 0.5rem;
+    background: #28a745;
+    color: #fff;
+    border-radius: 4px;
+    font-size: 0.8rem;
+}
+
+.schedule-item .status.pending {
+    background: #6c757d;
+}
+
+/* 段位ボードのスタイル */
+.rank-board {
+    margin: 3rem 0;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    padding: 2rem;
+    scroll-margin-top: 70px; /* ヘッダーの高さ分のマージン */
+}
+
+.rank-board h3 {
+    font-size: 1.8rem;
+    color: #333;
+    margin-bottom: 2rem;
+    text-align: center;
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+.rank-board h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: #28a745;
+}
+
+.rank-category {
+    margin-bottom: 1.5rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.rank-header {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    background: #f8f9fa;
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+    transition: background-color 0.3s ease;
+}
+
+.rank-header:hover {
+    background: #e9ecef;
+}
+
+.rank-header h4 {
+    margin: 0;
+    color: #2c3e50;
+}
+
+.holder-count {
+    background: #28a745;
+    color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+}
+
+.toggle-icon {
+    color: #28a745;
+    font-size: 0.8rem;
+    transition: transform 0.3s ease;
+}
+
+.rank-members {
+    display: none;
+    padding: 1rem;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    margin-bottom: 1rem;
+}
+
+.rank-members.active {
+    display: block;
+}
+
+.holders-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.holders-table th,
+.holders-table td {
+    padding: 0.8rem;
+    text-align: left;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.holders-table th {
+    background: #f8f9fa;
+    color: #2c3e50;
+    font-weight: 600;
+}
+
+.holders-table tr:hover {
+    background: #f8f9fa;
+}
+
+.no-holders {
+    text-align: center;
+    color: #6c757d;
+    padding: 1rem;
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .rank-header {
+        padding: 0.8rem;
+    }
+
+    .rank-members {
+        padding: 0.8rem;
+    }
+
+    .holders-table th,
+    .holders-table td {
+        padding: 0.6rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* 会長挨拶セクションのスタイル */
+.president-message {
+    margin: 3rem 0;
+    padding: 2rem;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.president-content {
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+    margin-top: 2rem;
+}
+
+.president-image {
+    flex: 0 0 300px;
+}
+
+.president-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.president-text {
+    flex: 1;
+}
+
+.president-text p {
+    font-size: 1.1rem;
+    line-height: 2;
+    color: #333;
+    margin: 0;
+}
+
+.president-name {
+    margin-top: 2rem;
+    text-align: right;
+    font-weight: bold;
+    color: #28a745;
+    font-size: 1.2rem;
+}
+
+@media (max-width: 768px) {
+    .president-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .president-image {
+        flex: 0 0 auto;
+        width: 100%;
+        max-width: 300px;
+        margin-bottom: 1.5rem;
+    }
+
+    .president-text p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 430px) {
+    .president-message {
+        padding: 1rem;
+        margin: 2rem 0;
+    }
+
+    .president-image {
+        max-width: 250px;
+    }
+
+    .president-text p {
+        font-size: 0.95rem;
+    }
+}
+
+/* JNGAページのヒーローセクション */
+.jnga-hero {
+    height: 400px;
+    width: 100%;
+    background-image: url('../images/common/旧会長.png');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 100%;
+    overflow: hidden;
+}
+
+.jnga-hero::before {
+    content: '';
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.4);
+    min-width: 100%;
+}
+
+.jnga-hero .hero-content {
+    position: relative;
+    margin: 0 auto;
+    width: 100%;
+    text-align: center;
+    color: #fff;
+    z-index: 1;
+}
+
+.jnga-hero .hero-content h1 {
+    font-size: 2.8rem;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    margin-bottom: 1rem;
+}
+
+.jnga-hero .hero-content p {
+    font-size: 1.5rem;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+@media (max-width: 768px) {
+    .jnga-hero {
+        height: 300px;
+    }
+
+    .jnga-hero .hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .jnga-hero .hero-content p {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 430px) {
+    .jnga-hero {
+        height: 250px;
+    }
+
+    .jnga-hero .hero-content h1 {
+        font-size: 2rem;
+    }
+
+    .jnga-hero .hero-content p {
+        font-size: 1rem;
+    }
+}
+
+/* 選手権ページ */
+.championship-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    padding-right: 260px; /* サイドバーの幅 + 余白を調整 */
+}
+
+.content-section {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    padding: 2rem;
+    margin-bottom: 2rem;
+}
+
+.content-section h2 {
+    color: #2c3e50;
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #4CAF50;
+}
+
+.method-box {
+    background: #f8f9fa;
+    border-radius: 6px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.method-box h3 {
+    color: #2c3e50;
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+}
+
+.method-box p {
+    color: #34495e;
+    line-height: 1.6;
+}
+
+.distance-classes {
+    margin-bottom: 2rem;
+}
+
+.distance-classes h3 {
+    color: #2c3e50;
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+}
+
+.class-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.class-item {
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    padding: 1rem;
+    text-align: center;
+    transition: transform 0.2s;
+}
+
+.class-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.class-name {
+    display: block;
+    color: #2c3e50;
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.class-distance {
+    display: block;
+    color: #4CAF50;
+    font-size: 1.1rem;
+}
+
+.features {
+    margin-top: 2rem;
+}
+
+.features h3 {
+    color: #2c3e50;
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+}
+
+.features ul {
+    list-style: none;
+    padding: 0;
+}
+
+.features li {
+    color: #34495e;
+    padding: 0.8rem 0;
+    border-bottom: 1px solid #e0e0e0;
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.features li:last-child {
+    border-bottom: none;
+}
+
+.features li::before {
+    content: '•';
+    color: #4CAF50;
+    position: absolute;
+    left: 0;
+}
+
+@media (max-width: 768px) {
+    .championship-content {
+        padding: 1rem;
+        padding-right: 1rem; /* モバイル表示時は通常のパディング */
+    }
+
+    .content-section {
+        padding: 1.5rem;
+    }
+
+    .class-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+}
+
+@media (max-width: 430px) {
+    .championship-content {
+        padding: 0.5rem;
+    }
+
+    .content-section {
+        padding: 1rem;
+    }
+
+    .class-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* イベントページのスタイル */
+.event-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.event-table {
+    margin-top: 2rem;
+    overflow-x: auto;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.event-table table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+}
+
+.event-table th {
+    background: #f8f9fa;
+    color: #2c3e50;
+    font-weight: 600;
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 2px solid #e0e0e0;
+}
+
+.event-table td {
+    padding: 1rem;
+    border-bottom: 1px solid #e0e0e0;
+    color: #34495e;
+}
+
+.event-table tr:hover {
+    background: #f8f9fa;
+}
+
+@media (max-width: 768px) {
+    .event-content {
+        padding: 1rem;
+    }
+
+    .event-table {
+        margin-top: 1.5rem;
+    }
+
+    .event-table th,
+    .event-table td {
+        padding: 0.8rem;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 430px) {
+    .event-content {
+        padding: 0.5rem;
+    }
+
+    .event-table {
+        margin-top: 1rem;
+    }
+
+    .event-table th,
+    .event-table td {
+        padding: 0.6rem;
+        font-size: 0.85rem;
+    }
+}
+
+/* サイドバーのスタイル */
+.sidebar {
+    position: fixed;
+    right: 2rem;
+    top: 70%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.98);
+    padding: 1.5rem;
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(40, 167, 69, 0.15);
+    min-width: 220px;
+}
+
+/* championship-contentセクション以降でサイドバーを表示 */
+.championship-content ~ .sidebar {
+    display: block;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar li {
+    margin-bottom: 1.2rem;
+    position: relative;
+}
+
+.sidebar li:last-child {
+    margin-bottom: 0;
+}
+
+.sidebar a {
+    color: #28a745;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    display: block;
+    padding: 0.8rem 1.2rem;
+    border-radius: 12px;
+    position: relative;
+    background: rgba(40, 167, 69, 0.08);
+    transform: translateX(-5px);
+    box-shadow: 0 4px 12px rgba(40, 167, 69, 0.1);
+}
+
+.sidebar a::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 70%;
+    background: #28a745;
+    border-radius: 0 2px 2px 0;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+    .championship-content {
+        padding: 1rem;
+        padding-right: 1rem;
+    }
+
+    .sidebar {
+       display: none;
+    }
+}
+
+@media (max-width: 430px) {
+    .championship-content {
+        padding: 0.5rem;
+    }
+}
+
+/* 年度選択ボタン */
+.year-selector {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.year-btn {
+    padding: 0.5rem 1.5rem;
+    border: 2px solid #28a745;
+    background-color: transparent;
+    color: #28a745;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.year-btn:hover {
+    background-color: #28a745;
+    color: white;
+}
+
+.year-btn.active {
+    background-color: #28a745;
+    color: white;
+}
+
+/* 準備中表示 */
+.coming-soon {
+    text-align: center;
+    padding: 3rem 1rem;
+    background: #f8f9fa;
+    border-radius: 8px;
+    margin: 1rem 0;
+}
+
+.coming-soon p {
+    color: #666;
+    font-size: 1.1rem;
+    margin: 0.5rem 0;
+}
+
+.coming-soon p:first-child {
+    color: #28a745;
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+
+/* イベントコンテンツの表示制御 */
+.event-content {
+    display: none;
+}
+
+.event-content.active {
+    display: block;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+    .year-selector {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .year-btn {
+        width: 100%;
+    }
+}
+
+/* 検定基準テーブルのスタイル */
+.standards-table {
+    margin: 2rem 0;
+    width: 100%;
+}
+
+.standards-table h3 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 1rem;
+    padding-left: 0;
+}
+
+.standards-table table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 3rem;
+}
+
+.standards-table th {
+    background-color: #28a745;
+    color: #fff;
+    padding: 1rem;
+    text-align: center;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.standards-table td {
+    padding: 1rem;
+    text-align: center;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.standards-table tr:last-child td {
+    border-bottom: none;
+}
+
+.standards-table tr:hover {
+    background-color: rgba(40, 167, 69, 0.05);
+}
+
+/* 各列のスタイル */
+.standards-table .rank {
+    font-weight: 600;
+    color: #28a745;
+}
+
+.standards-table .distance {
+    color: #333;
+}
+
+.standards-table .score {
+    color: #2c3e50;
+    font-weight: 500;
+}
+
+.standards-table .condition {
+    color: #2c3e50;
+}
+
+.standards-table .reference {
+    color: #666;
+}
+
+.standards-table .description {
+    color: #666;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+    .standards-table {
+        margin: 1.5rem 0;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .standards-table table {
+        min-width: 800px;
+    }
+
+    .standards-table th,
+    .standards-table td {
+        padding: 0.8rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* 検定方法のスタイル */
+.card {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+}
+
+.card-title {
+    color: #28a745;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.card-text {
+    color: #666;
+    margin-bottom: 0;
+}
+
+/* 見出しの装飾 */
+.qualification-section h2 {
+    font-size: 1.8rem;
+    color: #333;
+    margin-bottom: 2rem;
+    position: relative;
+    padding-bottom: 0.5rem;
+    text-align: center;
+}
+
+.qualification-section h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: #28a745;
+}
+
+/* ニアピン検定の説明セクション */
+.nearpin-intro {
+    margin-bottom: 3rem;
+    padding: 2rem;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    scroll-margin-top: 70px; /* ヘッダーの高さ分のマージン */
+}
+
+.nearpin-intro h2 {
+    color: #2c3e50;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    position: relative;
+}
+
+.nearpin-intro h2::after {
+    content: '';
+    display: block;
+    width: 100px;
+    height: 3px;
+    background: #28a745;
+    margin: 1rem auto 0;
+}
+
+.intro-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.intro-section {
+    margin-bottom: 2rem;
+}
+
+.intro-section h3 {
+    color: #2c3e50;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    padding-left: 0;
+}
+
+.intro-section p {
+    color: #34495e;
+    line-height: 1.8;
+    margin-bottom: 1rem;
+}
+
+.intro-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.intro-section ul li {
+    color: #34495e;
+    line-height: 1.8;
+    margin-bottom: 0.8rem;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.intro-section ul li::before {
+    content: '•';
+    color: #28a745;
+    position: absolute;
+    left: 0;
+}
+
+@media (max-width: 768px) {
+    .nearpin-intro {
+        padding: 1.5rem;
+    }
+
+    .nearpin-intro h2 {
+        font-size: 1.8rem;
+    }
+
+    .intro-section h3 {
+        font-size: 1.3rem;
+    }
+}
+
+/* 検定会場セクション */
+.test-venues {
+    margin-bottom: 3rem;
+    padding: 2rem;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.test-venues h2 {
+    color: #2c3e50;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    position: relative;
+}
+
+.test-venues h2::after {
+    content: '';
+    display: block;
+    width: 100px;
+    height: 3px;
+    background: #28a745;
+    margin: 1rem auto 0;
+}
+
+.venues-content {
+    overflow-x: auto;
+}
+
+.venues-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0 auto;
+    min-width: 800px;
+}
+
+.venues-table th,
+.venues-table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.venues-table th {
+    background-color: #28a745;
+    color: white;
+    font-weight: 600;
+}
+
+.venues-table tr:hover {
+    background-color: #f8f9fa;
+}
+
+.venues-table td:empty {
+    color: #999;
+}
+
+@media (max-width: 768px) {
+    .test-venues {
+        padding: 1.5rem;
+    }
+
+    .test-venues h2 {
+        font-size: 1.8rem;
+    }
+
+    .venues-table th,
+    .venues-table td {
+        padding: 0.8rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* サイトマップのスタイル */
+.sitemap-section {
+    padding: 3rem 0;
+    background: #fff;
+}
+
+.sitemap-group {
+    margin-bottom: 2.5rem;
+}
+
+.sitemap-group h3 {
+    color: #2c3e50;
+    font-size: 1.4rem;
+    margin-bottom: 1.2rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #28a745;
+}
+
+.sitemap-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sitemap-list li {
+    margin-bottom: 0.8rem;
+}
+
+.sitemap-list a {
+    color: #34495e;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.sitemap-list a:hover {
+    color: #28a745;
+}
+
+.sitemap-list ul {
+    list-style: none;
+    padding-left: 1.5rem;
+    margin-top: 0.5rem;
+}
+
+.sitemap-list ul li {
+    margin-bottom: 0.5rem;
+}
+
+/* プライバシーポリシーのスタイル */
+.privacy-policy {
+    padding: 3rem 0;
+    background: #fff;
+}
+
+.privacy-policy h2 {
+    color: #2c3e50;
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.privacy-policy h3 {
+    color: #2c3e50;
+    font-size: 1.4rem;
+    margin: 2rem 0 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #28a745;
+}
+
+.privacy-policy p {
+    color: #34495e;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
+
+.privacy-policy ul {
+    list-style: none;
+    padding-left: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.privacy-policy ul li {
+    color: #34495e;
+    line-height: 1.8;
+    margin-bottom: 0.8rem;
+    position: relative;
+}
+
+.privacy-policy ul li:before {
+    content: "•";
+    color: #28a745;
+    font-weight: bold;
+    position: absolute;
+    left: -1.5rem;
+}
+
+@media (max-width: 768px) {
+    .sitemap-group h3,
+    .privacy-policy h2 {
+        font-size: 1.3rem;
+    }
+
+    .privacy-policy h3 {
+        font-size: 1.2rem;
+    }
+
+    .sitemap-list ul {
+        padding-left: 1rem;
+    }
+}
+
+/* 目的セクションの番号付きリストのスタイル */
+.info-group ol {
+    padding-left: 2rem;
+    margin-top: 1rem;
+}
+
+.info-group ol li {
+    margin-bottom: 0.8rem;
+    line-height: 1.8;
+    color: #34495e;
+}
+
+
+@media (max-width: 768px) {
+    .sidebar {
+        display: none!important;
+    }
+}
+
