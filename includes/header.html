@@ -1,0 +1,71 @@
+<header>
+    <nav>
+        <div class="logo">
+            <a href="index.php" style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: 0.5rem;">
+                <img src="assets/images/common/JNGA_LOGO.jpg" alt="JNGA">
+                <div class="logo-text">
+                    <h1 class="organization-name">日本ニアピンゴルフ協会</h1>
+                    <p class="organization-motto">～全てのニアピニスト(NEARPINIST)の為に～</p>
+                </div>
+            </a>
+        </div>
+        <div class="social">
+            <a href="https://www.facebook.com/jnga.golf/" target="_blank" class="facebook-icon">
+                <img src="assets/images/common/facebook_icon.png" alt="Facebook">
+            </a>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.php">トップページ</a></li>
+            <li><a href="championship.php">ニアピン選手権</a></li>
+            <li><a href="nearpin.php">ニアピン検定</a></li>
+            <li><a href="jnga.php">JNGAについて</a></li>
+        </ul>
+        <div class="menu-toggle" id="menuToggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+    <div class="mobile-menu" id="mobileMenu">
+        <ul>
+            <li><a href="index.php">トップページ</a></li>
+            <li><a href="championship.php">ニアピン選手権</a></li>
+            <li><a href="nearpin.php">ニアピン検定</a></li>
+            <li><a href="jnga.php">JNGAについて</a></li>
+            <li><a href="sitemap.php">サイトマップ</a></li>
+            <li><a href="privacy.php">プライバシーポリシー</a></li>
+            <li><a href="mailto:info@jnga.jp">お問い合わせ</a></li>
+        </ul>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.querySelector('.menu-toggle');
+            const mobileMenu = document.querySelector('.mobile-menu');
+            
+            menuToggle.addEventListener('click', function() {
+                this.classList.toggle('active');
+                mobileMenu.classList.toggle('active');
+                document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+            });
+
+            // メニューリンクをクリックしたらメニューを閉じる
+            const menuLinks = mobileMenu.querySelectorAll('a');
+            menuLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    menuToggle.classList.remove('active');
+                    mobileMenu.classList.remove('active');
+                    document.body.style.overflow = '';
+                });
+            });
+
+            // メニュー外をクリックしたらメニューを閉じる
+            document.addEventListener('click', function(event) {
+                if (!menuToggle.contains(event.target) && !mobileMenu.contains(event.target)) {
+                    menuToggle.classList.remove('active');
+                    mobileMenu.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            });
+        });
+    </script>
+</header> 
