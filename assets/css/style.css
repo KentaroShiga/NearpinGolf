@@ -1,0 +1,2610 @@
+@charset "utf-8";
+
+/*
+ * JNGA Website Styles
+ * 
+ * Table of Contents:
+ * 1. Reset & Base
+ * 2. Layout & Grid
+ * 3. Typography
+ * 4. Header & Navigation
+ * 5. Hero Section
+ * 6. Activities
+ * 7. News
+ * 8. Tables
+ * 9. Forms
+ * 10. Footer
+ * 11. Utilities
+ * 12. Media Queries
+ */
+
+/* ===== 1. Reset & Base ===== */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html {
+	width: 100%;
+}
+
+body {
+	font-family: "游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic", "メイリオ", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif;
+	line-height: 1.8;
+	color: #333;
+	width: 100%;
+	font-size: 15px;
+	font-feature-settings: "palt";
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-weight: 500;
+}
+
+img {
+	border: none;
+	max-width: 100%;
+	height: auto;
+}
+
+/* ===== 2. Layout & Grid ===== */
+.container {
+	max-width: 1000px;
+	margin: 2rem auto;
+	padding: 0 1rem;
+}
+
+.container-full {
+	width: 100%;
+	margin: 0 auto;
+}
+
+/* ===== 3. Typography ===== */
+h1, h2, h3, h4, h5, h6 {
+	font-family: "游明朝体", "Yu Mincho", YuMincho, "ヒラギノ明朝 Pro", "Hiragino Mincho Pro", "MS P明朝", "MS PMincho", serif;
+	line-height: 1.6;
+	margin-bottom: 1.2rem;
+	letter-spacing: 0.05em;
+	font-feature-settings: "palt";
+	text-align: center;
+}
+
+h2 {
+	font-size: 2.2rem;
+	color: #333;
+	font-weight: 600;
+}
+
+h3 {
+	font-size: 1.6rem;
+	color: #28a745;
+	font-weight: 500;
+}
+
+p {
+	margin-bottom: 1.2rem;
+	line-height: 2;
+	letter-spacing: 0.02em;
+	text-align: left;
+}
+
+.text-center {
+	text-align: center;
+}
+
+/* 見出し以外のテキストを左詰めに */
+.intro-text,
+.message,
+.founder-profile,
+.info-group dd,
+.collaboration dd,
+.history dd,
+.mission-statement p,
+.founding-statement,
+.chairman-message,
+.activity-text p,
+.news-item p,
+.sidebar-section p,
+.sitemap-list ul a,
+.standards-table td,
+.schedule-table td {
+	text-align: left;
+}
+
+/* ===== 11. Utilities ===== */
+.mt-1 { margin-top: 0.5rem; }
+.mt-2 { margin-top: 1rem; }
+.mt-3 { margin-top: 1.5rem; }
+.mt-4 { margin-top: 2rem; }
+
+.mb-1 { margin-bottom: 0.5rem; }
+.mb-2 { margin-bottom: 1rem; }
+.mb-3 { margin-bottom: 1.5rem; }
+.mb-4 { margin-bottom: 2rem; }
+
+.p-1 { padding: 0.5rem; }
+.p-2 { padding: 1rem; }
+.p-3 { padding: 1.5rem; }
+.p-4 { padding: 2rem; }
+
+.clear {
+	clear: both;
+	height: 0;
+	line-height: 0;
+	font-size: 0;
+}
+
+.bold {
+	font-weight: bold;
+}
+
+/* Header */
+header {
+	background: #fff;
+	box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+	position: fixed;
+	width: 100%;
+	top: 0;
+	z-index: 1000;
+}
+
+nav {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	padding: 0.5rem 1rem;
+	max-width: 1200px;
+	margin: 0 auto;
+	gap: 1rem;
+}
+
+/* Logo */
+.logo {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	flex-shrink: 0;
+	max-width: 50%;
+}
+
+.logo img {
+	height: 50px;
+	width: auto;
+	border-radius: 4px;
+}
+
+.logo-text {
+	display: flex;
+	flex-direction: column;
+	gap: 0.25rem;
+	white-space: nowrap;
+	min-width: 0;
+}
+
+.organization-name {
+	font-family: "游明朝体", "Yu Mincho", YuMincho, "ヒラギノ明朝 Pro", "Hiragino Mincho Pro", "MS P明朝", "MS PMincho", serif;
+	font-size: 1.1rem;
+	font-weight: 600;
+	color: #28a745;
+	margin: 0;
+	line-height: 1.4;
+	letter-spacing: 0.05em;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.organization-motto {
+	font-family: "游明朝体", "Yu Mincho", YuMincho, "ヒラギノ明朝 Pro", "Hiragino Mincho Pro", "MS P明朝", "MS PMincho", serif;
+	font-size: 0.8rem;
+	color: #666;
+	margin: 0;
+	line-height: 1.4;
+	letter-spacing: 0.08em;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+/* Navigation */
+.nav-links {
+	display: flex;
+	list-style: none;
+	gap: 0.8rem;
+	align-items: center;
+	margin-left: auto;
+	flex-wrap: nowrap;
+	margin-right: 1rem;
+}
+
+.nav-links a {
+	text-decoration: none;
+	color: #333;
+	font-weight: 500;
+	font-size: 0.9rem;
+	padding: 0.4rem;
+	transition: color 0.3s;
+	white-space: nowrap;
+	letter-spacing: 0.05em;
+}
+
+.nav-links a:hover {
+	color: #28a745;
+}
+
+/* Hero Section */
+.hero {
+	height: 400px;
+	width: 100%;
+	background-image: url('../images/hero-bg.jpg');
+	background-size: cover;
+	background-position: center;
+	position: relative;
+	margin-top: 70px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-width: 100%;
+	overflow: hidden;
+}
+
+.hero::before {
+	content: '';
+	width: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: rgba(0,0,0,0.2);
+	min-width: 100%;
+}
+
+.hero-content {
+	position: relative;
+	margin: 0 auto;
+	width: 100%;
+	text-align: center;
+	color: #fff;
+	z-index: 1;
+}
+
+.hero-content h1 {
+	font-size: 3rem;
+	font-weight: bold;
+	text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+	margin-bottom: 1rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 1rem;
+	white-space: nowrap;
+}
+
+.heading-decoration-line {
+	width: 200px;
+	height: 6px;
+	position: relative;
+	background: #007A2B;
+	margin: 0 auto 1rem;
+}
+
+.heading-decoration-corner {
+	display: none;
+}
+
+.pin-icon {
+	display: inline-block;
+	width: 50px;
+	height: 50px;
+	background-image: none;
+	vertical-align: middle;
+	margin-right: 10px;
+}
+
+.golf-association-icon {
+	flex-shrink: 0;
+	margin-right: 0;
+}
+
+/* Main Content */
+.about-section {
+	background: #fff;
+	padding: 2rem;
+	border-radius: 8px;
+	box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.about-section h2 {
+	font-size: 2rem;
+	color: #333;
+	margin-bottom: 2rem;
+	text-align: center;
+}
+
+.profile {
+	margin: 2rem 0;
+	text-align: center;
+}
+
+.profile img {
+	max-width: 300px;
+	border-radius: 8px;
+}
+
+.message {
+	margin-top: 2rem;
+}
+
+.message p {
+	margin-bottom: 1rem;
+}
+
+.signature {
+	margin-top: 2rem;
+	text-align: center;
+}
+
+.organization-title {
+	font-size: 1.4rem;
+	font-weight: 600;
+	color: #333;
+	margin-bottom: 0.5rem;
+	font-family: "游明朝体", "Yu Mincho", YuMincho, "ヒラギノ明朝 Pro", "Hiragino Mincho Pro", "MS P明朝", "MS PMincho", serif;
+	letter-spacing: 0.05em;
+}
+
+.chairman-name {
+	font-size: 1.2rem;
+	font-weight: 500;
+	color: #28a745;
+	margin-top: 0.8rem;
+	font-family: "游明朝体", "Yu Mincho", YuMincho, "ヒラギノ明朝 Pro", "Hiragino Mincho Pro", "MS P明朝", "MS PMincho", serif;
+	letter-spacing: 0.05em;
+}
+
+/* Sidebar */
+.sidebar {
+	position: sticky;
+	top: 100px;
+	height: fit-content;
+}
+
+.sidebar-section {
+	background: #fff;
+	padding: 1.5rem;
+	border-radius: 8px;
+	box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+	margin-bottom: 1.5rem;
+}
+
+.sidebar-section h3 {
+	color: #28a745;
+	font-size: 1.2rem;
+	margin-bottom: 1rem;
+	padding-bottom: 0.5rem;
+	border-bottom: 2px solid #28a745;
+}
+
+.sidebar-section ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.sidebar-section li {
+	margin-bottom: 0.8rem;
+}
+
+.sidebar-section a {
+	color: #333;
+	text-decoration: none;
+	display: block;
+	padding: 0.5rem;
+	border-radius: 4px;
+	transition: all 0.3s ease;
+	font-size: 0.9rem;
+}
+
+.sidebar-section a:hover {
+	background: #f8f9fa;
+	color: #28a745;
+	padding-left: 1rem;
+}
+
+.date {
+	color: #666;
+	font-size: 0.9rem;
+	display: block;
+}
+
+/* Footer */
+footer {
+	background: #28a745;
+	color: #fff;
+	padding: 2rem 0;
+	margin-top: 4rem;
+}
+
+.footer-content {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 0 2rem;
+	text-align: center;
+}
+
+.footer-links {
+	margin-bottom: 1rem;
+}
+
+.footer-links a {
+	color: #fff;
+	text-decoration: none;
+	margin: 0 1rem;
+}
+
+.footer-links a:hover {
+	text-decoration: underline;
+}
+
+/* ===== Responsive Design ===== */
+@media (max-width: 1024px) {
+	.container {
+		padding: 0 1.5rem;
+	}
+
+	.logo {
+		gap: 0.5rem;
+	}
+
+	.organization-name {
+		font-size: 1rem;
+	}
+
+	.organization-motto {
+		font-size: 0.7rem;
+	}
+
+	.nav-links {
+		gap: 1rem;
+	}
+
+	.nav-links a {
+		font-size: 0.9rem;
+		padding: 0.4rem;
+	}
+
+	.hero-content h1 {
+		font-size: 2.5rem;
+	}
+}
+
+@media (max-width: 768px) {
+	/* Layout */
+	.container {
+		grid-template-columns: 1fr;
+		padding: 0;
+		max-width: 100%;
+	}
+
+	/* Header */
+	nav {
+		padding: 0.5rem;
+	}
+
+	.logo {
+		max-width: 70%;
+	}
+
+	.logo img {
+		height: 40px;
+	}
+
+	.organization-name {
+		font-size: 0.9rem;
+	}
+
+	.organization-motto {
+		font-size: 0.65rem;
+	}
+
+	.nav-links {
+		display: none;
+	}
+
+	.menu-toggle {
+		display: flex;
+	}
+
+	/* Hero Section */
+	.hero {
+		height: 250px;
+		margin-top: 60px;
+	}
+
+	.hero-content h1 {
+		font-size: 2rem;
+	}
+
+	/* Activities */
+	.activity-cards {
+		flex-direction: column;
+		padding: 0 1rem;
+	}
+	
+	.activity-card {
+		max-width: 100%;
+		margin-bottom: 1.5rem;
+	}
+
+	/* News Grid */
+	.news-grid {
+		grid-template-columns: repeat(2, 1fr);
+		gap: 1.5rem;
+		padding: 0 1rem;
+	}
+
+	/* Icons */
+	.medal-icon,
+	.golfer-icon {
+		width: 45px;
+		height: 45px;
+        margin: 0；
+	}
+
+	/* Footer */
+	.footer-content {
+		padding: 1rem;
+	}
+
+	.organization-title {
+		font-size: 1.2rem;
+	}
+
+	.chairman-name {
+		font-size: 1.1rem;
+	}
+}
+
+@media (max-width: 430px) {
+	/* Layout */
+	.container {
+		padding: 0.5rem;
+	}
+
+	/* Header */
+	.logo-text {
+		display: none;
+	}
+
+	.logo img {
+		height: 35px;
+	}
+
+	/* Hero Section */
+	.hero {
+		height: 200px;
+		margin-top: 55px;
+	}
+
+	.hero-content h1 {
+		font-size: 1.8rem;
+	}
+
+	/* Activities */
+	.activity-card {
+		padding: 1.5rem;
+	}
+
+	/* News Grid */
+	.news-grid {
+		grid-template-columns: 1fr;
+		gap: 1rem;
+	}
+
+	/* Icons */
+	.medal-icon,
+	.golfer-icon {
+		width: 40px;
+		height: 40px;
+        margin: 0;
+	}
+
+	/* Typography */
+	h2 {
+		font-size: 1.3rem !important;
+	}
+
+	h3 {
+		font-size: 1.1rem !important;
+	}
+
+	p {
+		font-size: 0.85rem !important;
+	}
+
+	.organization-title {
+		font-size: 1.1rem;
+	}
+
+	.chairman-name {
+		font-size: 1rem;
+	}
+}
+
+/* Mobile Menu */
+.menu-toggle {
+	display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 25px;
+    background: transparent;
+    border: none;
+	cursor: pointer;
+    padding: 0;
+    margin-left: auto;
+    z-index: 1001;
+}
+
+.menu-toggle span {
+	display: block;
+    width: 30px;
+	height: 3px;
+    background-color: #333;
+    border-radius: 3px;
+    transition: all 0.3s linear;
+    margin: 2px 0;
+}
+
+.menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -6px);
+}
+
+.mobile-menu {
+    display: none;
+    position: fixed;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 70px);
+    background: rgba(255, 255, 255, 0.98);
+    padding: 1rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    overflow-y: auto;
+    z-index: 1000;
+}
+
+.mobile-menu.active {
+    display: block;
+}
+
+.mobile-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.mobile-menu li {
+    margin: 0.5rem 0;
+    border-bottom: 1px solid #eee;
+}
+
+.mobile-menu li:last-child {
+    border-bottom: none;
+}
+
+.mobile-menu a {
+    text-decoration: none;
+    color: #333;
+    font-size: 1.1rem;
+    display: block;
+    padding: 1rem;
+    transition: color 0.3s;
+}
+
+.mobile-menu a:hover {
+    color: #28a745;
+}
+
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: flex;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    .mobile-menu {
+        top: 60px;
+        height: calc(100vh - 60px);
+    }
+}
+
+@media (max-width: 430px) {
+    .mobile-menu {
+        top: 55px;
+        height: calc(100vh - 55px);
+    }
+
+    .mobile-menu a {
+        font-size: 1rem;
+        padding: 0.8rem;
+    }
+}
+
+.social {
+	display: flex;
+	align-items: center;
+	margin-left: 0.75rem;
+	flex-shrink: 0;
+}
+
+.facebook-icon {
+	width: 24px;
+	height: 24px;
+	background-image: url('../images/facebook-icon.png');
+	background-size: contain;
+	display: block;
+}
+
+.facebook-link {
+	display: flex;
+	align-items: center;
+	text-decoration: none;
+	transition: opacity 0.3s;
+}
+
+.facebook-link:hover {
+	opacity: 0.8;
+}
+
+.facebook-link img {
+	width: 35px;
+	height: 35px;
+	margin-left: 1rem;
+}
+
+/* ----------------------------------- */
+/* 初期設定--------------------------- */
+body{
+	font-size:12px;
+	line-height:18px;
+	font-family:"ＭＳ Ｐゴシック";
+	color:#333333;
+}
+
+h1,h2,h3,h4,h5,p{
+	margin:0px;
+	padding:0px;
+}
+
+ul,li,dl,dt,dd,div{
+	margin:0px;
+	padding:0px;
+}
+
+.clear{
+	font-size:0px;
+	line-height:0px;
+	height:0px;
+	clear:both;
+}
+img{
+	border:none;
+	max-width: 100%;
+	height: auto;
+}
+.bold{
+	font-weight:bold;
+}
+/* ----------------------------------- */
+/* 共通設定--------------------------- */
+#all-body{
+	margin:0 auto;
+	width:800px;
+}
+#all-wall{
+	background-image:url(../images/common/line_wall.jpg);
+	width:800px;
+}
+#header {
+    display: none;
+}
+
+#header #button {
+    display: none;
+}
+
+#header #button .list {
+    display: none;
+}
+
+#header #button .list a {
+    display: none;
+}
+
+#header #pannavi {
+    display: none;
+}
+
+#contents{
+	padding: 40px;
+	text-align: center;
+	margin:3px auto 0px;
+	width:798px;
+}
+#contents h2 {
+	font-size: 24px;
+	margin-bottom: 20px;
+}
+#contents p {
+	font-size: 14px;
+	line-height: 1.6;
+	margin-bottom: 20px;
+}
+#contents img {
+	max-width: 100%;
+	height: auto;
+	margin-bottom: 20px;
+}
+#footer{
+	width:798px;
+	margin:110px 0px 0px 1px;
+	font-weight:bold;
+	color:#FFFFFF;
+}
+#footer a{
+	font-weight:bold;
+	color:#FFFFFF;
+	text-decoration:none;
+}
+#footer #back-ground{
+	width:798px;
+	height:24px;
+	background-image:url(../images/common/bg_footer.jpg);
+	background-repeat:repeat-x;
+}
+#footer .button{
+	width:300px;
+	margin:0px 0px 0px 3px;
+	display:inline;
+	float:left;
+}
+#footer .copyright{
+	width:385px;
+	margin:3px 0px 0px 0px;
+	display:inline;
+	float:right;
+}
+/* ----------------------------------- */
+/* トップページ----------------------- */
+#contents #top-left{
+	width:570px;
+	float:left;
+}
+#contents #top-left .news{
+	margin:5px 0px 0px 12px;
+	line-height:22px;
+}
+#contents #top-left h1{
+	margin-top:6px;
+	font-weight:bold;
+	font-size:12px;
+}
+#contents #top-right{
+	width:201px;
+	margin-left:23px;
+	display:inline;
+	float:left;
+}
+/* ----------------------------------- */
+/* 2階層共通-------------------------- */
+#contents #sec-left{
+	width:210px;
+	float:left;
+}
+#contents #sec-left #bg{
+	width:210px;
+	background-image:url(../images/common/bg_localnavi.jpg);
+	background-repeat:repeat-y;
+}
+/* #contents #sec-left #fax{
+	margin:18px 0px 0px 12px;
+} */
+#contents #sec-left #banner{
+	margin:18px 0px 0px 5px;
+}
+#contents #sec-left .title{
+	margin-left:1px;
+}
+#contents #sec-left .link{
+	margin:8px 0px 15px 0px;
+	text-align:center;
+}
+#contents #sec-right{
+	margin-left:12px;
+	width:576px;
+	display:inline;
+	float:left;
+}
+#contents #sec-right .lead{
+	margin:8px 0px 0px 20px;
+	width:472px;
+}
+/* ----------------------------------- */
+/* イベント開催情報------------------- */
+#contents #sec-right #event{
+	margin:0px 0px 0px 20px;
+}
+#contents #sec-right #event table{
+	margin:6px 0px 0px 0px;
+	border-color:#999999;
+	line-height:14px;
+}
+#contents #sec-right #event h1{
+	margin:20px 0px 0px 0px;
+	font-weight:bold;
+	font-size:16px;
+	line-height:18px;
+	color:#333333;
+}
+/* ----------------------------------- */
+/* コンペ賞品------------------------- */
+#contents #sec-right #compe{
+	margin:0px 0px 0px 20px;
+}
+#contents #sec-right #compe h1{
+	margin:16px 0px 0px 0px;
+	font-weight:bold;
+	font-size:16px;
+	line-height:18px;
+	color:#7d4031;
+}
+#contents #sec-right #compe p{
+	margin:3px 0px 0px 3px;
+	width:455px;
+}
+#contents #sec-right #compe table{
+	margin:3px 0px 0px 0px;
+	border-color:#999999;
+	line-height:14px;
+}
+#contents #sec-right #compe .link-top{
+	text-align:right;
+	width:526px;
+}
+/* ----------------------------------- */
+/* JNGAとは--------------------------- */
+#contents #sec-right #jnga{
+	margin:0px 0px 0px 8px;
+}
+#contents #sec-right #jnga .sub-title{
+	margin:14px 0px 0px 0px;
+}
+#contents #sec-right #jnga p{
+	margin:10px 0px 0px 11px;
+	width:446px;
+}
+#contents #sec-right #jnga #boss{
+	width:460px;
+	margin:9px 0px 0px 0px;
+}
+#contents #sec-right #jnga #boss .left{
+	width:171px;
+	float:left;
+}
+#contents #sec-right #jnga #boss .right{
+	width:278px;
+	margin-left:5px;
+	display:inline;
+	float:left;
+}
+
+/* ----------------------------------- */
+/* その他のページ--------------------- */
+#contents #sitemap{
+	margin:20px 0px 0px 16px;
+}
+#contents #sitemap .line{
+	margin:3px 0px 12px 0px;
+}
+#contents #sitemap .line-last{
+	margin:3px 0px 0px 0px;
+}
+
+#contents #menseki{
+	margin:20px 0px 0px 16px;
+	width:654px;
+}
+#contents #menseki .name{
+	text-align:right;
+}
+#contents #menseki p{
+	margin:20px 0px 0px 0px;
+}
+
+#contents #privacy{
+	margin:16px 0px 0px 16px;
+	width:654px;
+}
+#contents #privacy .name{
+	margin:11px 0px 0px 0px;
+	text-align:right;
+}
+#contents #privacy p{
+	margin:16px 0px 0px 0px;
+}
+
+#main-visual {
+	background-image: url('images/common/main_visual.jpg');
+	background-size: cover;
+	height: 300px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	color: #fff;
+}
+
+#main-visual h1 {
+	font-size: 36px;
+	margin: 0;
+}
+
+#main-visual p {
+	font-size: 18px;
+}
+
+/* ===== 6. Activities ===== */
+.activities {
+	padding: 4rem 2rem;
+	max-width: 1200px;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.activities h2 {
+	font-size: 2rem;
+	margin-bottom: 1rem;
+	color: #333;
+}
+
+.activity-cards {
+	display: flex;
+	gap: 3rem;
+	justify-content: center;
+	margin-top: 2rem;
+	padding: 0 2rem;
+}
+
+.activity-card {
+	flex: 1;
+	max-width: 450px;
+	padding: 2rem;
+	background: #fff;
+	border-radius: 8px;
+	box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	position: relative;
+	overflow: hidden;
+}
+
+.activity-card h3 {
+	font-size: 1.5rem;
+	margin-bottom: 1rem;
+	color: #28a745;
+}
+
+.activity-card p {
+	flex-grow: 1;
+	margin-bottom: 1.5rem;
+	line-height: 1.8;
+}
+
+.activity-card .learn-more {
+	display: inline-block;
+	padding: 0.5rem 1rem;
+	background: #28a745;
+	color: #fff;
+	text-decoration: none;
+	border-radius: 25px;
+	transition: background-color 0.3s;
+	margin: auto auto 0;
+}
+
+.activity-card .learn-more:hover {
+	background: #218838;
+}
+
+/* Activity Icons */
+.medal-icon,
+.golfer-icon {
+	display: block;
+	width: 60px;
+	height: 60px;
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+    margin: 0;
+}
+.activity-card .medal-icon,
+.activity-card .golfer-icon {
+    margin: 0 auto; 
+}
+.medal-icon {
+	background-image: url('../images/common/medal-ribbon.svg');
+}
+
+.golfer-icon {
+	background-image: url('../images/common/vaadin_golf.svg');
+}
+
+/* ===== 7. News ===== */
+.news {
+	padding: 4rem 2rem;
+	background: #f8f9fa;
+}
+
+.news-title {
+	text-align: center;
+	font-size: 2rem;
+	margin-bottom: 3rem;
+}
+
+.news-grid {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 2rem;
+	max-width: 1200px;
+	margin: 0 auto 2rem;
+}
+
+.news-item {
+	background: #fff;
+	border-radius: 8px;
+	overflow: hidden;
+	box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.news-item img {
+	width: 100%;
+	height: 200px;
+	object-fit: cover;
+}
+
+.news-tag {
+	display: inline-block;
+	padding: 0.25rem 1rem;
+	background: #28a745;
+	color: #fff;
+	font-size: 0.875rem;
+	margin: 1rem;
+}
+
+.news-item h3 {
+	padding: 0 1rem;
+	font-size: 1rem;
+	margin-bottom: 0.5rem;
+}
+
+.news-item time {
+	display: block;
+	padding: 0 1rem 1rem;
+	color: #666;
+	font-size: 0.875rem;
+}
+
+/* Bottom Content */
+.bottom-content {
+	background: #fff;
+	padding: 4rem 2rem;
+	margin-top: 4rem;
+}
+
+.bottom-content h2 {
+	font-size: 1.8rem;
+	text-align: center;
+	margin-bottom: 1rem;
+}
+
+.bottom-content .subtitle {
+	text-align: center;
+	margin-bottom: 3rem;
+	color: #666;
+}
+
+.activity-image {
+	max-width: 1200px;
+	margin: 0 auto;
+	display: flex;
+	align-items: center;
+	gap: 4rem;
+}
+
+.activity-image img {
+	width: 40%;
+	height: auto;
+	object-fit: contain;
+	max-height: 250px;
+}
+
+.activity-text {
+	flex: 1;
+	min-width: 0;
+	padding: 1rem;
+}
+
+.activity-text h3 {
+	font-size: 1.5rem;
+	margin-bottom: 1.5rem;
+	color: #333;
+}
+
+.activity-text p {
+	margin-bottom: 2rem;
+	line-height: 1.8;
+}
+
+.read-more {
+	display: inline-block;
+	padding: 0.8rem 2rem;
+	background: #28a745;
+	color: #fff;
+	text-decoration: none;
+	border-radius: 4px;
+	transition: background-color 0.3s;
+}
+
+.read-more:hover {
+	background: #218838;
+}
+
+/* Nearpin Page Styles */
+.nearpin-hero {
+    background-image: url('../images/nearpin-hero.jpg');
+    height: 400px;
+}
+
+.nearpin-container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 2rem;
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 2rem;
+}
+
+.main-content {
+    background: #fff;
+    width: 100%;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.nearpin-intro {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin-bottom: 2rem;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.nearpin-intro h2 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.nearpin-intro h3 {
+    font-size: 1.5rem;
+    color: #666;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.intro-text {
+    max-width: 800px;
+    margin: 0 auto 3rem;
+    line-height: 1.8;
+}
+
+.activity-schedule {
+    margin-top: 4rem;
+}
+
+.schedule-table {
+    margin-top: 2rem;
+    overflow-x: auto;
+}
+
+.schedule-table table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+}
+
+.schedule-table th {
+    background-color: #f8f9fa;
+    color: #333;
+    font-weight: bold;
+    padding: 12px;
+    text-align: center;
+    border-bottom: 2px solid #dee2e6;
+    vertical-align: middle;
+}
+
+.schedule-table td {
+    padding: 1rem;
+    border-bottom: 1px solid #eee;
+}
+
+.schedule-table tr:hover {
+    background: #f8f9fa;
+}
+
+/* Championship Page Styles */
+.championship-hero {
+    background-image: url('../images/championship-hero.jpg');
+    height: 400px;
+}
+
+.championship-container {
+    margin-top: 3rem;
+}
+
+.championship-intro {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.championship-intro h2 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.championship-intro h3 {
+    font-size: 1.5rem;
+    color: #666;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.trophy-icon {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background-image: url('../images/trophy-icon.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    vertical-align: middle;
+    margin-right: 10px;
+}
+
+/* Schedule Table Styles */
+.schedule-table {
+    margin-top: 2rem;
+    overflow-x: auto;
+}
+
+.schedule-table table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    font-size: 14px;
+}
+
+.schedule-table th {
+    background-color: #f8f9fa;
+    color: #333;
+    font-weight: bold;
+    padding: 12px;
+    text-align: center;
+    border-bottom: 2px solid #dee2e6;
+    vertical-align: middle;
+}
+
+.schedule-table td {
+    padding: 1rem;
+    border-bottom: 1px solid #eee;
+}
+
+.schedule-table tr:hover {
+    background: #f8f9fa;
+}
+
+.social-links {
+    display: flex;
+    align-items: center;
+    margin-left: 0.5rem;
+}
+
+.facebook-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    transition: opacity 0.3s;
+}
+
+.facebook-link:hover {
+    opacity: 0.8;
+}
+
+.facebook-link img {
+    width: 35px;
+    height: 35px;
+}
+
+.bottom-image {
+    width: 100%;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.bottom-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.bottom-section {
+    background-color: #f8f9fa;
+    padding: 4rem 0;
+}
+
+.bottom-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    padding: 0 2rem;
+}
+
+.bottom-left, .bottom-right {
+    flex: 1;
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.bottom-left h2, .bottom-right h2 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.bottom-left p, .bottom-right p {
+    color: #666;
+    margin-bottom: 1.5rem;
+}
+
+.bottom-link {
+    display: inline-block;
+    padding: 0.5rem 2rem;
+    background: #28a745;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 25px;
+    transition: background-color 0.3s;
+}
+
+.bottom-link:hover {
+    background: #218838;
+}
+
+@media (max-width: 768px) {
+    .nearpin-container {
+        grid-template-columns: 1fr;
+        padding: 0;
+        margin: 0;
+    }
+
+    .main-content,
+    .nearpin-intro {
+        padding: 1rem;
+        margin: 0;
+        border-radius: 0;
+        width: 100%;
+    }
+
+    .activity-card.championship::before {
+        width: 50px;
+        height: auto;
+    }
+}
+
+@media (max-width: 430px) {
+    .nearpin-container {
+        margin: 0;
+    }
+
+    .main-content {
+        padding: 1rem;
+        margin: 0;
+        border-radius: 0;
+    }
+
+    .nearpin-intro {
+        border-radius: 0;
+        margin: 0;
+    }
+
+    .benefits-section,
+    .dojo-locations,
+    .kentei-standards {
+        margin: 1rem 0;
+    }
+
+    .logo-text {
+        display: none;
+    }
+
+    .logo img {
+        height: 35px;
+        margin-right: 0;
+    }
+
+    .logo {
+        max-width: auto;
+    }
+
+    .activity-card.championship::before {
+        width: 40px;
+        height: auto;
+    }
+}
+
+/* Association Info Styles */
+.association-info {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+.info-group {
+    margin-bottom: 3rem;
+    background: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.info-group h3 {
+    color: #28a745;
+    font-size: 1.3rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #28a745;
+}
+
+.info-group h4 {
+    font-size: 1.1rem;
+    margin: 1.5rem 0 1rem;
+    color: #333;
+}
+
+.english-name {
+    color: #666;
+    font-size: 1.1rem;
+    margin-top: 0.5rem;
+}
+
+.info-group dl {
+    margin: 0;
+}
+
+.info-group dt {
+    font-weight: bold;
+    margin-top: 1rem;
+}
+
+.info-group dd {
+    margin-left: 0;
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+.officers dt {
+    float: left;
+    clear: left;
+    width: 100px;
+    margin-top: 0;
+    line-height: 1.6;
+}
+
+.officers dd {
+    margin-left: 100px;
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
+}
+
+.history dt {
+    font-weight: bold;
+    color: #28a745;
+    margin-top: 1.5rem;
+}
+
+.history dd {
+    margin-left: 0;
+    padding-left: 1rem;
+    border-left: 3px solid #eee;
+    margin-top: 0.5rem;
+}
+
+.mission-statement .highlight {
+    font-size: 1.2rem;
+    color: #28a745;
+    font-weight: bold;
+    margin: 1.5rem 0;
+    text-align: center;
+    line-height: 2;
+}
+
+.collaboration dl {
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 8px;
+}
+
+.collaboration dt {
+    color: #28a745;
+    font-weight: bold;
+    margin-top: 1rem;
+}
+
+.collaboration dt.large-text {
+    font-size: 1.8rem;
+    color: #28a745;
+    font-weight: bold;
+    margin-top: 1.5rem;
+    text-align: center;
+}
+
+.collaboration dd {
+    margin-left: 2rem;
+    margin-top: 0.5rem;
+}
+
+.founding-statement {
+    line-height: 1.8;
+}
+
+.founder {
+    text-align: right;
+    margin-top: 2rem;
+    font-weight: bold;
+}
+
+.chairman-message {
+    margin-top: 4rem;
+    padding-top: 4rem;
+    border-top: 1px solid #eee;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .association-info {
+        padding: 1rem;
+    }
+
+    .info-group {
+        padding: 1.5rem;
+    }
+
+    .officers dt {
+        float: none;
+        width: auto;
+    }
+
+    .officers dd {
+        margin-left: 1rem;
+    }
+
+    .mission-statement .highlight {
+        white-space: normal;
+        line-height: 1.8;
+    }
+}
+
+.founder-profile {
+    text-align: center;
+    margin: 2rem 0;
+}
+
+.founder-profile img {
+    max-width: 300px;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+
+.founder {
+    text-align: center;
+    margin-top: 1rem;
+    font-weight: bold;
+}
+
+/* 検定基準テーブルのスタイル */
+.kentei-standards {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin: 2rem 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.kentei-standards .section-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.kentei-standards .section-header h2 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.kentei-standards .heading-decoration-line {
+    width: 200px;
+    height: 4px;
+    background: #28a745;
+    margin: 1rem auto;
+}
+
+.kentei-standards .subtitle {
+    color: #666;
+    font-size: 1.1rem;
+    margin-top: 1rem;
+}
+
+.standards-table {
+    margin: 2rem 0;
+    overflow-x: auto;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    width: 100%;
+}
+
+.standards-table table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    background-color: white;
+}
+
+.standards-table th,
+.standards-table td {
+    padding: 0.8rem;
+    text-align: left;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.standards-table th {
+    background-color: #f8f9fa;
+    color: #333;
+    font-weight: bold;
+    text-align: center;
+    border-bottom: 2px solid #dee2e6;
+    vertical-align: middle;
+}
+
+.standards-table tr:hover {
+    background-color: rgba(40, 167, 69, 0.05);
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+    .kentei-standards {
+        padding: 1.5rem;
+        margin: 1rem 0;
+    }
+
+    .standards-table {
+        margin: 1rem 0;
+        padding: 1rem;
+    }
+
+    .standards-table table {
+        min-width: 600px;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 430px) {
+    .kentei-standards {
+        padding: 1rem;
+        margin: 0.5rem 0;
+        border-radius: 0;
+    }
+
+    .standards-table {
+        margin: 0.5rem 0;
+        padding: 0.5rem;
+    }
+
+    .standards-table th,
+    .standards-table td {
+        padding: 0.5rem;
+        font-size: 0.85rem;
+    }
+
+    .kentei-standards .section-header h2 {
+        font-size: 1.3rem;
+    }
+
+    .kentei-standards .subtitle {
+        font-size: 1rem;
+    }
+}
+
+@media (min-width: 769px) {
+	.menu-toggle {
+		display: none;
+	}
+
+	.nav-links {
+		display: flex;
+	}
+}
+
+/* 既存のスマートフォン用メディアクエリの後に追加 */
+@media (max-width: 430px) {
+    /* 全体のレイアウト調整 */
+    .container,
+    .container-full,
+    #contents,
+    #all-body,
+    #all-wall {
+        width: 100% !important;
+        min-width: 0;
+        margin: 0 auto;
+        padding: 1rem;
+        box-sizing: border-box;
+    }
+
+    /* ヘッダー調整 */
+    nav {
+        padding: 0.5rem;
+        gap: 0.5rem;
+    }
+
+    .logo {
+        max-width: 65%;
+    }
+
+    .logo img {
+        height: 35px;
+    }
+
+    /* テーブル調整 */
+    .standards-table,
+    .championship-history,
+    .schedule-table {
+        margin: 1rem auto;
+        padding: 0.5rem;
+        width: 100%;
+        overflow-x: auto;
+        box-sizing: border-box;
+    }
+
+    .standards-table table,
+    .championship-history .table,
+    .schedule-table table {
+        margin: 0 auto;
+        width: 100%;
+        font-size: 0.75rem;
+    }
+
+    /* お知らせ項目の修正 */
+    .news-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        padding: 0;
+    }
+
+    .news-item {
+        width: 100%;
+        margin: 0 0 1rem 0;
+    }
+
+    .news-item img {
+        height: 160px;
+    }
+
+    /* 協会概要セクションの横幅修正 */
+    .info-group {
+        margin: 1rem 0;
+        padding: 1rem;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    /* ヒーローセクション */
+    .hero {
+        height: 200px;
+        min-width: 100%;
+        margin-top: 55px;
+    }
+
+    .hero-content h1 {
+        font-size: 1.8rem;
+    }
+
+    /* フッター */
+    .footer-content {
+        padding: 0.5rem;
+    }
+
+    /* コンテンツ内の要素調整 */
+    #contents #sec-right,
+    #contents #sec-left {
+        width: 100%;
+        margin: 0 auto;
+        float: none;
+    }
+
+    #contents #sec-right .lead,
+    #contents #sec-right #compe p {
+        width: 100%;
+        margin: 0.5rem auto;
+    }
+
+    /* 画像サイズ調整 */
+    .profile img,
+    .founder-profile img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    /* テキスト調整 */
+    h2 {
+        font-size: 1.3rem !important;
+    }
+
+    h3 {
+        font-size: 1.1rem !important;
+    }
+
+    p {
+        font-size: 0.85rem !important;
+    }
+
+    /* モバイルメニュー */
+    .mobile-menu {
+        top: 55px;
+    }
+
+    .mobile-menu a {
+        font-size: 0.9rem;
+        padding: 0.75rem;
+    }
+
+    /* テーブルのスクロール領域の中央揃え */
+    .table-responsive {
+        margin: 0 auto;
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    /* テーブルセルの調整 */
+    .standards-table th,
+    .standards-table td,
+    .championship-history .table th,
+    .championship-history .table td,
+    .schedule-table th,
+    .schedule-table td {
+        padding: 0.4rem;
+        text-align: center;
+    }
+
+    .activity-image {
+        gap: 1rem;
+    }
+
+    .activity-image img {
+        max-height: 150px;
+    }
+
+    /* サイトマップの調整 */
+    .sitemap-section {
+        margin: 1rem auto;
+        padding: 1rem;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .sitemap-group {
+        margin-bottom: 2rem;
+    }
+
+    .sitemap-list > li > a {
+        font-size: 1rem;
+        padding: 0.5rem 0;
+    }
+
+    .sitemap-list ul {
+        padding-left: 1rem;
+    }
+
+    /* 検定ページの調整 */
+    .kentei-standards {
+        margin: 2rem auto;
+        padding: 1rem;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .standards-table {
+        margin: 1rem auto;
+        padding: 0.5rem;
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .standards-table h3 {
+        font-size: 1.4rem;
+        margin: 2rem 0 1rem;
+    }
+
+    /* 選手権ページの調整 */
+    .championship-intro {
+        margin: 1rem auto;
+        padding: 1rem;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .competition-section {
+        margin: 1rem auto;
+        padding: 1rem;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .method-box, 
+    .class-box, 
+    .features-box {
+        padding: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .class-list li {
+        flex-direction: column;
+        align-items: flex-start;
+        margin-bottom: 1rem;
+    }
+
+    .class-name {
+        margin-bottom: 0.5rem;
+    }
+
+    /* 共通の調整 */
+    .container,
+    .container-full {
+        padding: 0.5rem;
+    }
+
+    section {
+        margin: 1rem auto;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    /* テーブル共通の調整 */
+    table {
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    th, td {
+        padding: 0.5rem;
+        font-size: 0.85rem;
+    }
+}
+
+/* 競技セクションのスタイル */
+.competition-section {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin-bottom: 2rem;
+}
+
+.competition-section .competition-title {
+    font-size: 1.5rem;
+    color: #28a745;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #28a745;
+}
+
+.competition-details h4 {
+    font-size: 1.2rem;
+    color: #333;
+    margin: 1.5rem 0 1rem;
+}
+
+.method-box,
+.class-box,
+.features-box {
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+}
+
+.method-box h5,
+.class-box h5,
+.features-box h5 {
+    font-size: 1.1rem;
+    color: #28a745;
+    margin-bottom: 1rem;
+}
+
+.class-list {
+    list-style: none;
+    padding: 0;
+}
+
+.class-list li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.8rem;
+}
+
+.class-name {
+    background: #28a745;
+    color: #fff;
+    padding: 0.3rem 0.8rem;
+    border-radius: 4px;
+    margin-right: 1rem;
+    font-weight: bold;
+}
+
+.features-list {
+    list-style: none;
+    padding: 0;
+}
+
+.features-list li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.8rem;
+}
+
+.features-list li:before {
+    content: "•";
+    color: #28a745;
+    position: absolute;
+    left: 0;
+    font-size: 1.2rem;
+}
+
+@media (max-width: 430px) {
+    .competition-section {
+        padding: 1rem;
+        margin: 1rem 0;
+    }
+
+    .method-box,
+    .class-box,
+    .features-box {
+        padding: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .class-list li {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .class-name {
+        margin-bottom: 0.5rem;
+    }
+
+    .competition-section .competition-title {
+        font-size: 1.3rem;
+    }
+
+    .competition-details h4 {
+        font-size: 1.1rem;
+    }
+
+    .method-box h5,
+    .class-box h5,
+    .features-box h5 {
+        font-size: 1rem;
+    }
+}
+
+.golfer-icon {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    background-image: url('../../images/top/vaadin_golf.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    vertical-align: middle;
+    margin-right: 10px;
+}
+
+.golf-ball-icon {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    background-image: url('../images/common/medal.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    vertical-align: middle;
+    margin-left: 10px;
+}
+
+@media (max-width: 768px) {
+    .golfer-icon,
+    .golf-ball-icon {
+        width: 35px;
+        height: 35px;
+    }
+}
+
+@media (max-width: 430px) {
+    .golfer-icon,
+    .golf-ball-icon {
+        width: 30px;
+        height: 30px;
+    }
+}
+
+@media (max-width: 430px) {
+    #about-kentei {
+        width: 100%;
+        margin: 0;
+        padding: 1rem;
+        box-sizing: border-box;
+    }
+
+    .intro-text {
+        width: 100%;
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+
+    .benefits-section {
+        width: 100%;
+        padding: 0;
+        margin: 1rem 0;
+        box-sizing: border-box;
+    }
+
+    .benefits-list {
+        width: 100%;
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+
+    .benefits-list li {
+        margin-bottom: 1rem;
+        padding: 0;
+    }
+}
+
+.medal-icon {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    background-image: url('../images/common/medal-ribbon.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    vertical-align: middle;
+    margin-bottom: 1rem;
+}
+
+.activity-card.championship::before {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .medal-icon {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+@media (max-width: 430px) {
+    .medal-icon {
+        width: 35px;
+        height: 35px;
+    }
+}
+
+/* アイコンスタイルの統一 */
+.medal-icon,
+.golfer-icon {
+    display: block !important;
+    width: 60px !important;
+    height: 60px !important;
+    background-size: contain !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    margin: 0;
+}
+
+.medal-icon {
+    background-image: url('../images/common/medal-ribbon.svg') !important;
+}
+
+.golfer-icon {
+    background-image: url('../../images/top/vaadin_golf.svg') !important;
+}
+
+@media (max-width: 768px) {
+    .medal-icon,
+    .golfer-icon {
+        width: 45px !important;
+        height: 45px !important;
+        margin: 0;
+    }
+}
+
+@media (max-width: 430px) {
+    .medal-icon,
+    .golfer-icon {
+        width: 40px !important;
+        height: 40px !important;
+        margin: 0;
+    }
+}
+
+/* テーブルのフォントスタイル */
+.table-responsive th {
+    font-family: "游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic", sans-serif;
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.table-responsive td {
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+    body {
+        font-size: 14px;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+    }
+
+    h3 {
+        font-size: 1.4rem;
+    }
+
+    p {
+        line-height: 1.9;
+    }
+}
+
+@media (max-width: 430px) {
+    body {
+        font-size: 13px;
+    }
+
+    h2 {
+        font-size: 1.5rem !important;
+    }
+
+    h3 {
+        font-size: 1.2rem !important;
+    }
+
+    p {
+        font-size: 0.9rem !important;
+        line-height: 1.8;
+    }
+
+    .table-responsive th,
+    .table-responsive td {
+        font-size: 0.85rem;
+    }
+}
+
+/* ===== 8. Sitemap ===== */
+.sitemap-section {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin: 2rem auto;
+    max-width: 1200px;
+}
+
+.sitemap-section h2 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.sitemap-group {
+    margin-bottom: 3rem;
+}
+
+.sitemap-group h3 {
+    font-size: 1.5rem;
+    color: #28a745;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #28a745;
+}
+
+.sitemap-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sitemap-list > li {
+    margin-bottom: 1.5rem;
+}
+
+.sitemap-list > li > a {
+    font-size: 1.2rem;
+    color: #333;
+    text-decoration: none;
+    font-weight: 600;
+    display: block;
+    padding: 0.5rem 0;
+    transition: color 0.3s;
+}
+
+.sitemap-list > li > a:hover {
+    color: #28a745;
+}
+
+.sitemap-list ul {
+    list-style: none;
+    padding-left: 2rem;
+    margin-top: 0.5rem;
+}
+
+.sitemap-list ul li {
+    margin-bottom: 0.8rem;
+}
+
+.sitemap-list ul a {
+    color: #666;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s;
+}
+
+.sitemap-list ul a:hover {
+    color: #28a745;
+}
+
+@media (max-width: 768px) {
+    .sitemap-section {
+        padding: 1.5rem;
+        margin: 1rem;
+    }
+
+    .sitemap-group h3 {
+        font-size: 1.3rem;
+    }
+
+    .sitemap-list > li > a {
+        font-size: 1.1rem;
+    }
+
+    .sitemap-list ul a {
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 430px) {
+    .sitemap-section {
+        padding: 1rem;
+        margin: 0.5rem;
+    }
+
+    .sitemap-group h3 {
+        font-size: 1.2rem;
+    }
+
+    .sitemap-list > li > a {
+        font-size: 1rem;
+    }
+
+    .sitemap-list ul {
+        padding-left: 1.5rem;
+    }
+
+    .sitemap-list ul a {
+        font-size: 0.9rem;
+    }
+}
+
+/* ===== Privacy Policy ===== */
+.privacy-policy {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.privacy-policy h2 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.privacy-policy h3 {
+    font-size: 1.5rem;
+    color: #28a745;
+    margin: 2rem 0 1rem;
+}
+
+.privacy-policy p {
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+}
+
+.privacy-policy ul {
+    margin-bottom: 1.5rem;
+    padding-left: 2rem;
+}
+
+.privacy-policy li {
+    margin-bottom: 0.8rem;
+    line-height: 1.8;
+}
+
+@media (max-width: 768px) {
+    .privacy-policy {
+        margin: 1.5rem;
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 430px) {
+    .privacy-policy {
+        margin: 1rem;
+        padding: 1rem;
+    }
+}

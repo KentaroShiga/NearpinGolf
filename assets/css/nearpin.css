@@ -1,0 +1,231 @@
+/* ===== Nearpin Page Styles ===== */
+.nearpin-hero {
+    background-image: url('../images/nearpin-hero.jpg');
+    height: 400px;
+}
+
+.nearpin-container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 2rem;
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 2rem;
+}
+
+.main-content {
+    background: #fff;
+    width: 100%;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.nearpin-intro {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin-bottom: 2rem;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.nearpin-intro h2 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.nearpin-intro h3 {
+    font-size: 1.5rem;
+    color: #666;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.intro-text {
+    max-width: 800px;
+    margin: 0 auto 3rem;
+    line-height: 1.8;
+}
+
+/* 検定基準テーブルのスタイル */
+.kentei-standards {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin: 2rem 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.kentei-standards .section-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.kentei-standards .section-header h2 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.kentei-standards .heading-decoration-line {
+    width: 200px;
+    height: 4px;
+    background: #28a745;
+    margin: 1rem auto;
+}
+
+.kentei-standards .subtitle {
+    color: #666;
+    font-size: 1.1rem;
+    margin-top: 1rem;
+}
+
+.standards-table {
+    margin: 2rem 0;
+    overflow-x: auto;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    width: 100%;
+}
+
+.standards-table table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    background-color: white;
+}
+
+.standards-table th,
+.standards-table td {
+    padding: 0.8rem;
+    text-align: left;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.standards-table th {
+    background-color: #f8f9fa;
+    color: #333;
+    font-weight: bold;
+    text-align: center;
+    border-bottom: 2px solid #dee2e6;
+    vertical-align: middle;
+}
+
+.standards-table tr:hover {
+    background-color: rgba(40, 167, 69, 0.05);
+}
+
+/* 検定会場のスタイル */
+.dojo-locations {
+    margin-top: 3rem;
+}
+
+.location-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+.location-table th,
+.location-table td {
+    padding: 0.8rem;
+    border: 1px solid #dee2e6;
+    text-align: left;
+}
+
+.location-table th {
+    background-color: #f8f9fa;
+    font-weight: bold;
+}
+
+.location-table tr:hover {
+    background-color: rgba(40, 167, 69, 0.05);
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+    .nearpin-container {
+        grid-template-columns: 1fr;
+        padding: 0;
+        margin: 0;
+    }
+
+    .main-content,
+    .nearpin-intro {
+        padding: 1rem;
+        margin: 0;
+        border-radius: 0;
+        width: 100%;
+    }
+
+    .kentei-standards {
+        padding: 1.5rem;
+        margin: 1rem 0;
+    }
+
+    .standards-table {
+        margin: 1rem 0;
+        padding: 1rem;
+    }
+
+    .standards-table table {
+        min-width: 600px;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 430px) {
+    .nearpin-container {
+        margin: 0;
+    }
+
+    .main-content {
+        padding: 1rem;
+        margin: 0;
+        border-radius: 0;
+    }
+
+    .nearpin-intro {
+        border-radius: 0;
+        margin: 0;
+    }
+
+    .benefits-section,
+    .dojo-locations,
+    .kentei-standards {
+        margin: 1rem 0;
+    }
+
+    .kentei-standards {
+        padding: 1rem;
+        margin: 0.5rem 0;
+        border-radius: 0;
+    }
+
+    .standards-table {
+        margin: 0.5rem 0;
+        padding: 0.5rem;
+    }
+
+    .standards-table th,
+    .standards-table td {
+        padding: 0.5rem;
+        font-size: 0.85rem;
+    }
+
+    .kentei-standards .section-header h2 {
+        font-size: 1.3rem;
+    }
+
+    .kentei-standards .subtitle {
+        font-size: 1rem;
+    }
+} 
