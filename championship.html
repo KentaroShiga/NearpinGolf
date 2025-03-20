@@ -13,7 +13,7 @@
    <header>
     <nav>
         <div class="logo">
-            <a href="index.php" style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: 0.5rem;">
+            <a href="index.html" style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: 0.5rem;">
                 <img src="assets/images/common/JNGA_LOGO.JPG" alt="JNGA">
                 <div class="logo-text">
                     <h1 class="organization-name">日本ニアピンゴルフ協会</h1>
@@ -27,10 +27,10 @@
             </a>
         </div>
         <ul class="nav-links">
-            <li><a href="index.php">トップページ</a></li>
-            <li><a href="championship.php">ニアピン選手権</a></li>
-            <li><a href="nearpin.php">ニアピン検定</a></li>
-            <li><a href="jnga.php">JNGAについて</a></li>
+            <li><a href="index.html">トップページ</a></li>
+            <li><a href="championship.html">ニアピン選手権</a></li>
+            <li><a href="nearpin.html">ニアピン検定</a></li>
+            <li><a href="jnga.html">JNGAについて</a></li>
         </ul>
         <div class="menu-toggle" id="menuToggle">
             <span></span>
@@ -40,12 +40,12 @@
     </nav>
     <div class="mobile-menu" id="mobileMenu">
         <ul>
-            <li><a href="index.php">トップページ</a></li>
-            <li><a href="championship.php">ニアピン選手権</a></li>
-            <li><a href="nearpin.php">ニアピン検定</a></li>
-            <li><a href="jnga.php">JNGAについて</a></li>
-            <li><a href="sitemap.php">サイトマップ</a></li>
-            <li><a href="privacy.php">プライバシーポリシー</a></li>
+            <li><a href="index.html">トップページ</a></li>
+            <li><a href="championship.html">ニアピン選手権</a></li>
+            <li><a href="nearpin.html">ニアピン検定</a></li>
+            <li><a href="jnga.html">JNGAについて</a></li>
+            <li><a href="sitemap.html">サイトマップ</a></li>
+            <li><a href="privacy.html">プライバシーポリシー</a></li>
             <li><a href="mailto:info@jnga.jp">お問い合わせ</a></li>
         </ul>
     </div>
@@ -217,8 +217,15 @@
         </section>
     </main>
 
-    <?php include 'includes/footer.html'; ?>
-
+    <footer>
+    <div class="footer-content">
+        <div class="footer-links">
+            <a href="sitemap.php">サイトマップ</a>
+            <a href="privacy.php">プライバシーポリシー</a>
+        </div>
+        <p>&copy; <?php echo date('Y'); ?> 日本ニアピンゴルフ協会 All Rights Reserved.</p>
+    </div>
+</footer> 
     <script src="assets/js/main.js"></script>
     <script>
     document.addEventListener('DOMContentLoaded', function() {
