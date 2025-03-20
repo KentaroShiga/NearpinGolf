@@ -143,58 +143,15 @@
                     <button class="year-btn active" data-year="2023">2023年度</button>
                     <button class="year-btn" data-year="2025">2025年度</button>
                 </div>
-                <div id="2023" class="event-content active">
-                    <div class="event-table">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>開催日</th>
-                                    <th>都道府県</th>
-                                    <th>コース名</th>
-                                    <th>電話番号</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php
-                                $json = file_get_contents('data/events_2023.json');
-                                $data = json_decode($json, true);
-                                
-                                // 日付でソート（新しい順）
-                                usort($data['events'], function($a, $b) {
-                                    // 日付文字列から月と日を抽出
-                                    preg_match('/(\d+)月(\d+)日/', $a['date'], $matchesA);
-                                    preg_match('/(\d+)月(\d+)日/', $b['date'], $matchesB);
-                                    
-                                    // 月と日を数値に変換
-                                    $monthA = intval($matchesA[1]);
-                                    $dayA = intval($matchesA[2]);
-                                    $monthB = intval($matchesB[1]);
-                                    $dayB = intval($matchesB[2]);
-                                    
-                                    // 月を比較
-                                    if ($monthA !== $monthB) {
-                                        return $monthB - $monthA;
-                                    }
-                                    // 月が同じ場合は日を比較
-                                    return $dayB - $dayA;
-                                });
-                                
-                                foreach ($data['events'] as $event) {
-                                    echo '<tr>';
-                                    echo '<td>' . htmlspecialchars($event['date']) . '</td>';
-                                    echo '<td>' . htmlspecialchars($event['prefecture']) . '</td>';
-                                    echo '<td>' . htmlspecialchars($event['course']) . '</td>';
-                                    echo '<td>' . htmlspecialchars($event['tel']) . '</td>';
-                                    echo '</tr>';
-                                }
-                                ?>
-                            </tbody>
-                        </table>
+                <div id="2025" class="event-content active">
+                     <div class="coming-soon">
+                        <p>2025年度の開催コース情報は現在準備中です。</p>
+                        <p>決まり次第、このページでお知らせいたします。</p>
                     </div>
                 </div>
-                <div id="2025" class="event-content">
+                <div id="2026" class="event-content">
                     <div class="coming-soon">
-                        <p>2025年度の開催コース情報は現在準備中です。</p>
+                        <p>2026年度の開催コース情報は現在準備中です。</p>
                         <p>決まり次第、このページでお知らせいたします。</p>
                     </div>
                 </div>
